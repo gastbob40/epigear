@@ -1,5 +1,5 @@
 from typing import List
-from models.permission import Permission
+from src.models.permission import Permission
 
 
 class PermissionGroup:

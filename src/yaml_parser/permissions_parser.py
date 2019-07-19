@@ -1,7 +1,7 @@
 from typing import List
 import yaml
-from models.permission import Permission
-from models.permission_group import PermissionGroup
+from src.models.permission import Permission
+from src.models.permission_group import PermissionGroup
 
 
 class PermissionGroupParser:
