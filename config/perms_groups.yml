@@ -1,107 +1,107 @@
 # Admin Permission
 ADMIN_PERM:
   # Moderation permission
-  CREATE_INSTANT_INVITE: true
-  ADMINISTRATOR: true
-  KICK_MEMBERS: true
-  BAN_MEMBERS: true
-  VIEW_AUDIT_LOG: true
-  MANAGE_NICKNAMES: true
-  MANAGE_ROLES: true
-  MANAGE_EMOJIS: true
-  MANAGE_WEBHOOKS: true
-  MANAGE_CHANNELS: true
-  MANAGE_GUILD: true
+  create_instant_invite: true
+  administrator: true
+  kick_members: true
+  ban_members: true
+  view_audit_log: true
+  manage_nicknames: true
+  manage_roles: true
+  manage_emojis: true
+  manage_webhooks: true
+  manage_channels: true
+  manage_guild: true
 
   # General permission
-  CHANGE_NICKNAME: true
-  ADD_REACTIONS: true
+  change_nickname: true
+  add_reactions: true
 
   # Text channels permissions
-  VIEW_CHANNEL: true
-  SEND_MESSAGES: true
-  SEND_TTS_MESSAGES: true
-  MANAGE_MESSAGES: true
-  EMBED_LINKS: true
-  ATTACH_FILES: true
-  READ_MESSAGE_HISTORY: true
-  MENTION_EVERYONE: true
-  USE_EXTERNAL_EMOJIS: true
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  manage_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  mention_everyone: true
+  external_emojis: true
 
   # Voice channels permissions
-  CONNECT: true
-  SPEAK: true
-  MUTE_MEMBERS: true
-  DEAFEN_MEMBERS: true
-  MOVE_MEMBERS: true
-  USE_VAD: true
-  PRIORITY_SPEAKER: true
+  connect: true
+  speak: true
+  mute_members: true
+  deafen_members: true
+  move_members: true
+  use_voice_activation: true
+  priority_speaker: true
 
 # Modo Permission
 MODO_PERM:
   # Moderation permission
-  CREATE_INSTANT_INVITE: true
-  KICK_MEMBERS: true
-  MANAGE_ROLES: true
+  create_instant_invite: true
+  kick_members: true
+  manage_roles: true
 
   # General permission
-  CHANGE_NICKNAME: true
-  ADD_REACTIONS: true
+  change_nickname: true
+  add_reactions: true
 
   # Text channels permissions
-  VIEW_CHANNEL: true
-  SEND_MESSAGES: true
-  SEND_TTS_MESSAGES: true
-  MANAGE_MESSAGES: true
-  EMBED_LINKS: true
-  ATTACH_FILES: true
-  READ_MESSAGE_HISTORY: true
-  USE_EXTERNAL_EMOJIS: true
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  manage_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  external_emojis: true
 
   # Voice channels permissions
-  CONNECT: true
-  SPEAK: true
-  MUTE_MEMBERS: true
-  DEAFEN_MEMBERS: true
-  MOVE_MEMBERS: true
-  USE_VAD: true
-  PRIORITY_SPEAKER: true
+  connect: true
+  speak: true
+  mute_members: true
+  deafen_members: true
+  move_members: true
+  use_voice_activation: true
+  priority_speaker: true
 
 
 # General Permission Group
 
 MANAGE_MESSAGE:
-  VIEW_CHANNEL: true
-  SEND_MESSAGES: true
-  SEND_TTS_MESSAGES: true
-  MANAGE_MESSAGES: true
-  EMBED_LINKS: true
-  ATTACH_FILES: true
-  READ_MESSAGE_HISTORY: true
-  USE_EXTERNAL_EMOJIS: true
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  manage_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  external_emojis: true
 
 READ_AND_WRITE_WITHOUT_HISTORY:
-  VIEW_CHANNEL: true
-  SEND_MESSAGES: true
-  SEND_TTS_MESSAGES: true
-  EMBED_LINKS: true
-  ATTACH_FILES: true
-  READ_MESSAGE_HISTORY: false
-  USE_EXTERNAL_EMOJIS: true
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: false
+  external_emojis: true
 
 READ_AND_WRITE:
-  VIEW_CHANNEL: true
-  SEND_MESSAGES: true
-  SEND_TTS_MESSAGES: true
-  EMBED_LINKS: true
-  ATTACH_FILES: true
-  READ_MESSAGE_HISTORY: true
-  USE_EXTERNAL_EMOJIS: true
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  external_emojis: true
 
 READ:
-  VIEW_CHANNEL: true
-  SEND_MESSAGES: false
+  read_messages: true
+  send_messages: false
 
 DEFAULT:
-  VIEW_CHANNEL: false
-  SEND_MESSAGES: false
+  read_messages: false
+  send_messages: false

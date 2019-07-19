@@ -1,14 +1,17 @@
 from typing import List
-from src.models.permission import Permission
+
+import discord
 
 
 class PermissionGroup:
     name: str
-    permissions: List[Permission]
+    permissions: discord.Permissions
 
     def __init__(self, name: str):
         self.name = name
-        self.permissions = []
+        self.permissions = discord.Permissions()
 
     def __str__(self):
         return self.name
+
+
