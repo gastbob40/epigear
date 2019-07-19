@@ -1,6 +1,6 @@
 epita:
   # displayed name
-  name: EPITA/ 👍
+  name: EPITA/
   #perm overwrites for some roles
   overwrites:
     #role: PERM_TYPE
@@ -16,7 +16,7 @@ epita:
       overwrites: ~
 
 epita_global:
-  name: EPITA/GLOBAL/ 🌐
+  name: EPITA/GLOBAL/
   overwrites:
     EPITA: READ_AND_WRITE
     ADMIN: ADMIN_PERM

@@ -20,22 +20,23 @@ class ChannelParser:
             channels = {}
 
             for channel_name in data[category_name]['channels']:
-                overwrites = ChannelParser.__overwrites_parser__(
-                    data[category_name]['channels'][channel_name]['overwrites'], permissions_groups, roles)
+                overwrites = None if not data[category_name]['channels'][channel_name]['overwrites'] else \
+                    ChannelParser.__overwrites_parser__(data[category_name]['channels'][channel_name]['overwrites'],
+                                                        permissions_groups, roles)
                 new_channel = Channel(data[category_name]['channels'][channel_name]['name'], overwrites)
                 channels[channel_name] = new_channel
 
-            overwrites = ChannelParser.__overwrites_parser__(
-                data[category_name]['overwrites'], permissions_groups, roles)
+            overwrites = None if not data[category_name]['overwrites'] else \
+                ChannelParser.__overwrites_parser__(data[category_name]['overwrites'], permissions_groups, roles)
+
             new_category = Category(data[category_name]['name'], overwrites, channels)
             categories[category_name] = new_category
 
         return categories
 
     @staticmethod
-    def __overwrites_parser__(raw_overwrites: Dict[str, str],permissions_groups: Dict[str, PermissionGroup],
-                            roles: Dict[str, Role]) -> Dict[RoleDiscord, PermissionOverwrite]:
-
+    def __overwrites_parser__(raw_overwrites: Dict[str, str], permissions_groups: Dict[str, PermissionGroup],
+                              roles: Dict[str, Role]) -> Dict[RoleDiscord, PermissionOverwrite]:
         overwrites = {}
 
         for role_name in raw_overwrites:
