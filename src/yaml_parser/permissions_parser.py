@@ -14,6 +14,7 @@ class PermissionGroupParser:
         for perm_group_name in data:
             perm_group = PermissionGroup(perm_group_name)
             perm_group.permissions.update(**data[perm_group_name])
+            perm_group.permissions_overwrite.update(**data[perm_group_name])
             perm_groups[perm_group_name] = perm_group
 
         return perm_groups
