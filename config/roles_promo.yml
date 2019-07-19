@@ -1,32 +1,32 @@
 roles_template:
   PROMO_N_PLUS_1:
     hoist: true
-    permissions: ADMIN_PERM
+    permissions: DEFAULT
     mentionable: true
 
   PROMO_N:
     hoist: true
-    permissions: ADMIN_PERM
+    permissions: DEFAULT
     mentionable: true
 
   PROMO_N_MINUS_1:
     hoist: true
-    permissions: ADMIN_PERM
+    permissions: DEFAULT
     mentionable: true
 
   PROMO_N_MINUS_2:
     hoist: true
-    permissions: ADMIN_PERM
+    permissions: DEFAULT
     mentionable: true
 
   PROMO_N_MINUS_3:
     hoist: true
-    permissions: ADMIN_PERM
+    permissions: DEFAULT
     mentionable: true
 
   PROMO_N_MINUS_4:
     hoist: true
-    permissions: ADMIN_PERM
+    permissions: DEFAULT
     mentionable: true
 
 promos:
