@@ -32,4 +32,22 @@ roles_template:
 promos:
   2019:
     name: 2019
-    color: ffffff
+    color: 0xffffff
+  2020:
+    name: 2019
+    color: 0xffffff
+  2021:
+    name: 2019
+    color: 0xffffff
+  2022:
+    name: 2019
+    color: 0xffffff
+  2023:
+    name: 2019
+    color: 0xffffff
+  2024:
+    name: 2019
+    color: 0xffffff
+  2025:
+    name: 2019
+    color: 0xffffff
