@@ -16,7 +16,7 @@ EPITA:
   name: epita
   color: 0xffffff
   hoist: false
-  permissiosn: DEFAULT
+  permissions: DEFAULT
   mentionable: false
 
 #MODO:

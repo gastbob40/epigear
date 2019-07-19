@@ -15,6 +15,9 @@ epita:
       #perm overwrites for some roles
       overwrites: ~
 
+  vocal_channels: ~
+
+
 epita_global:
   name: EPITA/GLOBAL/
   overwrites:

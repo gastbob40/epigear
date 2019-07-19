@@ -14,7 +14,10 @@ class Channel:
 
 class Category(Channel):
     channels: Dict[str, Channel]
+    vocal_channels: Dict[str, Channel]
 
-    def __init__(self, name: str, overwrites: Dict[RoleDiscord, PermissionOverwrite], channels: Dict[str, Channel]):
+    def __init__(self, name: str, overwrites: Dict[RoleDiscord, PermissionOverwrite], channels: Dict[str, Channel],
+                 vocal_channels: Dict[str, Channel]):
         super().__init__(name, overwrites)
         self.channels = channels
+        self.vocal_channels = vocal_channels

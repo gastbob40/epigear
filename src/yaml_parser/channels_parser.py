@@ -17,19 +17,33 @@ class ChannelParser:
         categories = {}
 
         for category_name in data:
-            channels = {}
 
-            for channel_name in data[category_name]['channels']:
-                overwrites = None if not data[category_name]['channels'][channel_name]['overwrites'] else \
-                    ChannelParser.__overwrites_parser__(data[category_name]['channels'][channel_name]['overwrites'],
-                                                        permissions_groups, roles)
-                new_channel = Channel(data[category_name]['channels'][channel_name]['name'], overwrites)
-                channels[channel_name] = new_channel
+            # Text Channels
+            channels = {}
+            if data[category_name]['channels'] is not None:
+
+                for channel_name in data[category_name]['channels']:
+                    overwrites = None if not data[category_name]['channels'][channel_name]['overwrites'] else \
+                        ChannelParser.__overwrites_parser__(data[category_name]['channels'][channel_name]['overwrites'],
+                                                            permissions_groups, roles)
+                    new_channel = Channel(data[category_name]['channels'][channel_name]['name'], overwrites)
+                    channels[channel_name] = new_channel
+
+            # Vocal Channels
+            vocal_channels = {}
+            if data[category_name]['vocal_channels'] is not None:
+
+                for channel_name in data[category_name]['vocal_channels']:
+                    overwrites = None if not data[category_name]['channels'][channel_name]['overwrites'] else \
+                        ChannelParser.__overwrites_parser__(data[category_name]['channels'][channel_name]['overwrites'],
+                                                            permissions_groups, roles)
+                    new_channel = Channel(data[category_name]['channels'][channel_name]['name'], overwrites)
+                    vocal_channels[channel_name] = new_channel
 
             overwrites = None if not data[category_name]['overwrites'] else \
                 ChannelParser.__overwrites_parser__(data[category_name]['overwrites'], permissions_groups, roles)
 
-            new_category = Category(data[category_name]['name'], overwrites, channels)
+            new_category = Category(data[category_name]['name'], overwrites, channels, vocal_channels)
             categories[category_name] = new_category
 
         return categories
