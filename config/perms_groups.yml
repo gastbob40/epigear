@@ -1,0 +1,107 @@
+# Admin Permission
+ADMIN_PERM:
+  # Moderation permission
+  CREATE_INSTANT_INVITE: true
+  ADMINISTRATOR: true
+  KICK_MEMBERS: true
+  BAN_MEMBERS: true
+  VIEW_AUDIT_LOG: true
+  MANAGE_NICKNAMES: true
+  MANAGE_ROLES: true
+  MANAGE_EMOJIS: true
+  MANAGE_WEBHOOKS: true
+  MANAGE_CHANNELS: true
+  MANAGE_GUILD: true
+
+  # General permission
+  CHANGE_NICKNAME: true
+  ADD_REACTIONS: true
+
+  # Text channels permissions
+  VIEW_CHANNEL: true
+  SEND_MESSAGES: true
+  SEND_TTS_MESSAGES: true
+  MANAGE_MESSAGES: true
+  EMBED_LINKS: true
+  ATTACH_FILES: true
+  READ_MESSAGE_HISTORY: true
+  MENTION_EVERYONE: true
+  USE_EXTERNAL_EMOJIS: true
+
+  # Voice channels permissions
+  CONNECT: true
+  SPEAK: true
+  MUTE_MEMBERS: true
+  DEAFEN_MEMBERS: true
+  MOVE_MEMBERS: true
+  USE_VAD: true
+  PRIORITY_SPEAKER: true
+
+# Modo Permission
+MODO_PERM:
+  # Moderation permission
+  CREATE_INSTANT_INVITE: true
+  KICK_MEMBERS: true
+  MANAGE_ROLES: true
+
+  # General permission
+  CHANGE_NICKNAME: true
+  ADD_REACTIONS: true
+
+  # Text channels permissions
+  VIEW_CHANNEL: true
+  SEND_MESSAGES: true
+  SEND_TTS_MESSAGES: true
+  MANAGE_MESSAGES: true
+  EMBED_LINKS: true
+  ATTACH_FILES: true
+  READ_MESSAGE_HISTORY: true
+  USE_EXTERNAL_EMOJIS: true
+
+  # Voice channels permissions
+  CONNECT: true
+  SPEAK: true
+  MUTE_MEMBERS: true
+  DEAFEN_MEMBERS: true
+  MOVE_MEMBERS: true
+  USE_VAD: true
+  PRIORITY_SPEAKER: true
+
+
+# General Permission Group
+
+MANAGE_MESSAGE:
+  VIEW_CHANNEL: true
+  SEND_MESSAGES: true
+  SEND_TTS_MESSAGES: true
+  MANAGE_MESSAGES: true
+  EMBED_LINKS: true
+  ATTACH_FILES: true
+  READ_MESSAGE_HISTORY: true
+  USE_EXTERNAL_EMOJIS: true
+
+READ_AND_WRITE_WITHOUT_HISTORY:
+  VIEW_CHANNEL: true
+  SEND_MESSAGES: true
+  SEND_TTS_MESSAGES: true
+  EMBED_LINKS: true
+  ATTACH_FILES: true
+  READ_MESSAGE_HISTORY: false
+  USE_EXTERNAL_EMOJIS: true
+
+READ_AND_WRITE:
+  VIEW_CHANNEL: true
+  SEND_MESSAGES: true
+  SEND_TTS_MESSAGES: true
+  EMBED_LINKS: true
+  ATTACH_FILES: true
+  READ_MESSAGE_HISTORY: true
+  USE_EXTERNAL_EMOJIS: true
+
+READ:
+  VIEW_CHANNEL: true
+  SEND_MESSAGES: false
+
+DEFAULT:
+  VIEW_CHANNEL: false
+  SEND_MESSAGES: false
