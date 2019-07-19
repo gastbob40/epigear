@@ -25,54 +25,65 @@ ACDC:
 A1:
   name: A1
   color: b34700
+  hoist: true
   mentionable: true
 
 A2:
   name: A2
   color: b34700
+  hoist: true
   mentionable: true
 
 B1:
   name: B1
   color: b34700
+  hoist: true
   mentionable: true
 
 B2:
   name: B2
   color: b34700
+  hoist: true
   mentionable: true
 
 C1:
   name: C1
   color: b34700
+  hoist: true
   mentionable: true
 
 C2:
   name: D2
   color: b34700
+  hoist: true
   mentionable: true
 
 D1:
   name: D1
   color: b34700
+  hoist: true
   mentionable: true
 
 D2:
   name: D3
   color: b34700
+  hoist: true
   mentionable: true
 
 INT1:
   name: INT1
   color: b34700
+  hoist: true
   mentionable: true
 
 INT2:
   name: INT2
   color: b34700
+  hoist: true
   mentionable: true
 
 INT3:
   name: INT3
   color: b34700
+  hoist: true
   mentionable: true
