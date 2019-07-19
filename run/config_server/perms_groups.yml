@@ -98,7 +98,7 @@ READ_AND_WRITE:
   read_message_history: true
   external_emojis: true
 
-READ:
+READ_ONLY:
   read_messages: true
   send_messages: false
 

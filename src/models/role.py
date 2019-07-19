@@ -1,5 +1,6 @@
 from src.models.permission_group import PermissionGroup
 from discord.colour import Color
+from discord import Role as RoleDiscord
 
 
 class Role:
@@ -9,6 +10,7 @@ class Role:
     permission: PermissionGroup
     hoist: bool
     mentionable: bool
+    role_discord: RoleDiscord
 
     def __init__(self, name: str, color_code: int = 0x000000, permission: PermissionGroup = None,
                  hoist: bool = False, mentionable: bool = False):
@@ -23,5 +25,6 @@ class Role:
         return 'role infos : \n name = {} \n color = {} ' \
                '\n hoist = {} \n mentionable = {}'.format(self.name, self.color, self.hoist, self.mentionable)
 
-    def set_id(self, id: int):
-        self.id = id
+    def set_role(self, role: RoleDiscord):
+        self.id = role.id
+        self.role_discord = role

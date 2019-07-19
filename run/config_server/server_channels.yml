@@ -1,0 +1,37 @@
+epita:
+  # displayed name
+  name: EPITA/ 👍
+  #perm overwrites for some roles
+  overwrites:
+    #role: PERM_TYPE
+    EPITA: READ_ONLY
+    ADMIN: ADMIN_PERM
+
+  #list of the channels in the category
+  channels:
+    annonces:
+      # displayed name
+      name: annonces
+      #perm overwrites for some roles
+      overwrites: ~
+
+epita_global:
+  name: EPITA/GLOBAL/ 🌐
+  overwrites:
+    EPITA: READ_AND_WRITE
+    ADMIN: ADMIN_PERM
+  channels:
+    general:
+      # displayed name
+      name: annonces
+      #perm overwrites for some roles
+      overwrites: ~
+    staff_epilogin_only:
+      # displayed name
+      name: test staff epilogin
+      #perm overwrites for some roles
+      overwrites:
+        EPITA: DEFAULT
+        ADMIN: ADMIN_PERM
+        STAFF_EPILOGIN: ADMIN_PERM
+

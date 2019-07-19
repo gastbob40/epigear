@@ -12,96 +12,103 @@ ADMIN:
   permissions: ADMIN_PERM
   mentionable: true
 
-MODO:
-  name: Modo
-  color: 0xff6600
-  hoist: true
-  permissions: MODO_PERM
-  mentionable: true
+EPITA:
+  name: epita
+  color: 0xffffff
+  hoist: false
+  permissiosn: DEFAULT
+  mentionable: false
 
-ACDC: 
-  name: ACDC
-  color: 0xb34700
-  hoist: true
-  permissions: MANAGE_MESSAGE
-  mentionable: true
-
-
-# Class
-
-A1:
-  name: A1
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-A2:
-  name: A2
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-B1:
-  name: B1
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-B2:
-  name: B2
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-C1:
-  name: C1
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-C2:
-  name: D2
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-D1:
-  name: D1
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-D2:
-  name: D3
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-INT1:
-  name: INT1
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-INT2:
-  name: INT2
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
-
-INT3:
-  name: INT3
-  color: 0xb34700
-  permissions: DEFAULT
-  hoist: true
-  mentionable: true
+#MODO:
+#  name: Modo
+#  color: 0xff6600
+#  hoist: true
+#  permissions: MODO_PERM
+#  mentionable: true
+#
+#ACDC:
+#  name: ACDC
+#  color: 0xb34700
+#  hoist: true
+#  permissions: MANAGE_MESSAGE
+#  mentionable: true
+#
+#
+## Class
+#
+#A1:
+#  name: A1
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#A2:
+#  name: A2
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#B1:
+#  name: B1
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#B2:
+#  name: B2
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#C1:
+#  name: C1
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#C2:
+#  name: D2
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#D1:
+#  name: D1
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#D2:
+#  name: D3
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#INT1:
+#  name: INT1
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#INT2:
+#  name: INT2
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
+#
+#INT3:
+#  name: INT3
+#  color: 0xb34700
+#  permissions: DEFAULT
+#  hoist: true
+#  mentionable: true
