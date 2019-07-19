@@ -38,3 +38,5 @@ epita_global:
         ADMIN: ADMIN_PERM
         STAFF_EPILOGIN: ADMIN_PERM
 
+  vocal_channels: ~
+
