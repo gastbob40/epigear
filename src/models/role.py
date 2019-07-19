@@ -4,7 +4,7 @@ from discord import colour
 
 class Role:
     name: str
-    color: colour
+    color: colour.Color
     permission: Permission
     hoist: bool
     mentionable: bool
