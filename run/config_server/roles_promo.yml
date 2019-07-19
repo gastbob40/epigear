@@ -29,6 +29,11 @@ roles_template:
     permissions: DEFAULT
     mentionable: true
 
+  #PROMO_N_MINUS_5:
+  #    hoist: true
+  #    permissions: DEFAULT
+  #    mentionable: true
+
 promos:
   2019:
     name: 2019

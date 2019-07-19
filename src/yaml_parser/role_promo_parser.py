@@ -8,7 +8,7 @@ class RolePromoParser:
 
     @staticmethod
     def yaml_to_objects(current_promo: int, permissions_groups: Dict[str, PermissionGroup]):
-        with open('config/roles_promo.yml', 'r') as stream:
+        with open('run/config_server/roles_promo.yml', 'r') as stream:
             data = yaml.safe_load(stream)
 
         colors = RolePromoParser.__get_colors__(current_promo, data)

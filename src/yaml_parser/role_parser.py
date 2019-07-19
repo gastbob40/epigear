@@ -8,7 +8,7 @@ class RoleParser:
 
     @staticmethod
     def yaml_to_objects(permissions_groups: Dict[str, PermissionGroup]) -> Dict[str, Role]:
-        with open('config/roles.yml', 'r') as stream:
+        with open('run/config_server/roles.yml', 'r') as stream:
             data = yaml.safe_load(stream)
 
         roles = {}

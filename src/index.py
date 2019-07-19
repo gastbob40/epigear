@@ -6,6 +6,3 @@ permissions_groups = PermissionGroupParser.yaml_to_objects()
 roles = RoleParser.yaml_to_objects(permissions_groups)
 promo_roles = RolePromoParser.yaml_to_objects(2024, permissions_groups)
 
-
-
-
