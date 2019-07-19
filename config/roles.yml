@@ -1,5 +1,12 @@
+STAFF_EPILOGIN:
+  name: Staff Epilogin
+  color: ffff4d
+  hoist: true
+  permissions: ADMIN_PERM
+  mentionable: true
+
 ADMIN:
-  name: Administrateur
+  name: Admin
   color: ffff4d
   hoist: true
   permissions: ADMIN_PERM
