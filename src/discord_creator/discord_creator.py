@@ -24,9 +24,13 @@ class DiscordCreator:
         self.permissions_groups = PermissionGroupParser.yaml_to_objects()
         self.roles = RoleParser.yaml_to_objects(self.permissions_groups)
         self.promo_roles = RolePromoParser.yaml_to_objects(current_promo, self.permissions_groups)
+
+        # everyone role =>
+
         self.all_roles: Dict[str, Role] = self.roles
         self.client = client
         self.guild = client.get_guild(guild_id)
+
         # all_roles: Dict[str, Role] = {**roles, **promo_roles}
 
     async def create_role(self):
