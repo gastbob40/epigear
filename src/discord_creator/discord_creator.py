@@ -61,6 +61,8 @@ class DiscordCreator:
 
             # Create discord category
             discord_category: discord.CategoryChannel = discord.utils.get(self.guild.categories, name=category.name)
+            # Add the default role
+            category.overwrites[self.guild.default_role] = category.default_perm
             if discord_category == None:
                 discord_category = await self.guild.create_category_channel(name=category.name,
                                                                             overwrites=category.overwrites)
@@ -70,7 +72,7 @@ class DiscordCreator:
             # Create discord channel
             for text_channel_name in category.channels:
                 text_channel = category.channels[text_channel_name]
-
+                text_channel.overwrites[self.guild.default_role] = text_channel.default_perm
                 discord_channel: discord.TextChannel = \
                     discord.utils.get(self.guild.text_channels, name=text_channel.name, category_id=discord_category.id)
 
