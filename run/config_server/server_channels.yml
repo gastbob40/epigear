@@ -1,7 +1,7 @@
 # CATEGORY
 epita_adm:
   # NAME
-  name: EPITA/ADM
+  name: EPITA/ADM👥
   # PERM
   overwrites: ~
   # EVERYONE
@@ -13,22 +13,55 @@ epita_adm:
       # NAME
       name: administration
       #PERM
-      overwrites: ~
-      default_perm: DEFAULT
-
-
-    staff_epilogin_only:
-      # displayed name
-      name: test-staff-epilogin
-
-      #perm overwrites for some roles
       overwrites:
-        EPITA: DEFAULT
+        STAFF_EPILOGIN: SERVER_ADMIN_PERM
         ADMIN: ADMIN_PERM
-        STAFF_EPILOGIN: ADMIN_PERM
+      default_perm: HIDDEN
 
-      default_perm: DEFAULT
+    moderation:
+      # NAME
+      name: moderation
+      #PERM
+      overwrites:
+        STAFF_EPILOGIN: SERVER_ADMIN_PERM
+        ADMIN: ADMIN_PERM
+        MODO: MODO_PERM
+      default_perm: HIDDEN
+
+    adm_room:
+      # NAME
+      name: Adm_Epita
+      #PERM
+      overwrites:
+        STAFF_EPILOGIN: SERVER_ADMIN_PERM
+        ADMIN: ADMIN_PERM
+        MODO: MODO_PERM
+        ADM: MANAGE_MESSAGE
+        PROF: MANAGE_MESSAGE
+      default_perm: HIDDEN
+
+    acdc_room:
+      # NAME
+      name: ACDC_room
+      #PERM
+      overwrites:
+        STAFF_EPILOGIN: SERVER_ADMIN_PERM
+        ADMIN: ADMIN_PERM
+        ACDC: MANAGE_MESSAGE
+      default_perm: HIDDEN
 
   # VOCAL CHANNELS
-  vocal_channels: ~
+  vocal_channels:
+
+    reunion:
+      # NAME
+      name: Réunion
+      #PERM
+      overwrites:
+        STAFF_EPILOGIN: SERVER_ADMIN_PERM
+        ADMIN: ADMIN_PERM
+        MODO: VOCAL
+        ADM: VOCAL
+        PROF: VOCAL
+      default_perm: HIDDEN
 

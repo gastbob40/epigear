@@ -141,5 +141,11 @@ READ_ONLY:
 HIDDEN:
   read_messages: false
 
+VOCAL:
+  # Voice channels permissions
+  connect: true
+  speak: true
+  use_voice_activation: true
+
 DEFAULT:
   read_messages: false
