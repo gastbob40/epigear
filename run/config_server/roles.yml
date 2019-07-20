@@ -197,6 +197,20 @@ YAKA:
   hoist: true
   mentionable: false
 
+DELEGUE:
+  name: Délégués
+  color: 0xd3a068
+  permissions: DEFAULT
+  hoist: false
+  mentionable: false
+
+EXTERNE:
+  name: Externe
+  color: 0xc0ff00
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
 EPITA:
   name: epita
   color: 0xffffff
