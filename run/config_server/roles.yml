@@ -198,7 +198,7 @@ YAKA:
   mentionable: false
 
 DELEGUE:
-  name: Délégués
+  name: Delegue
   color: 0xd3a068
   permissions: DEFAULT
   hoist: false
@@ -213,21 +213,21 @@ EXTERNE:
 
 EPITA:
   name: epita
-  color: 0xffffff
+  color: 0
   hoist: false
   permissions: DEFAULT
   mentionable: false
 
 EPITAVEUGLE:
   name: EPITAveugle
-  color: 0xffffff
+  color: 0
   hoist: false
   permissions: DEFAULT
   mentionable: false
 
 NESAITPASECRIRE:
-  name: NeSaitPasÉcrire
-  color: 0xffffff
+  name: NeSaitPasEcrire
+  color: 0
   hoist: false
   permissions: DEFAULT
   mentionable: false
