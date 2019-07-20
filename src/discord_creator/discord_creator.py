@@ -26,12 +26,10 @@ class DiscordCreator:
         self.promo_roles = RolePromoParser.yaml_to_objects(current_promo, self.permissions_groups)
 
         # everyone role =>
-
-        self.all_roles: Dict[str, Role] = self.roles
+        # self.all_roles: Dict[str, Role] = self.roles
+        self.all_roles: Dict[str, Role] = {**self.roles, **self.promo_roles}
         self.client = client
         self.guild = client.get_guild(guild_id)
-
-        # all_roles: Dict[str, Role] = {**roles, **promo_roles}
 
     async def create_role(self):
         for role_name in self.all_roles:
@@ -77,9 +75,32 @@ class DiscordCreator:
                     discord.utils.get(self.guild.text_channels, name=text_channel.name, category_id=discord_category.id)
 
                 if discord_channel == None:
-                    await self.guild.create_text_channel(name=text_channel.name,
-                                                         overwrites=text_channel.overwrites,
-                                                         category=discord_category)
+                    discord_channel = await self.guild.create_text_channel(name=text_channel.name,
+                                                                           category=discord_category)
+                    await discord_channel.edit(sync_permissions=True)
+                    for role in text_channel.overwrites:
+                        await discord_channel.set_permissions(role, overwrite=text_channel.overwrites[role])
+
                 else:
-                    await discord_channel.edit(overwrites=text_channel.overwrites,
-                                               category=discord_category)
+                    await discord_channel.edit(sync_permissions=True)
+                    for role in text_channel.overwrites:
+                        await discord_channel.set_permissions(role, overwrite=text_channel.overwrites[role])
+
+            for voice_channel_name in category.vocal_channels:
+                voice_channel = category.vocal_channels[voice_channel_name]
+                voice_channel.overwrites[self.guild.default_role] = voice_channel.default_perm
+                discord_channel: discord.VoiceChannel = \
+                    discord.utils.get(self.guild.voice_channels, name=voice_channel.name,
+                                      category_id=discord_category.id)
+
+                if discord_channel == None:
+                    discord_channel = await self.guild.create_voice_channel(name=voice_channel.name,
+                                                                            category=discord_category)
+                    await discord_channel.edit(sync_permissions=True)
+                    for role in voice_channel.overwrites:
+                        await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])
+
+                else:
+                    await discord_channel.edit(sync_permissions=True)
+                    for role in voice_channel.overwrites:
+                        await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])

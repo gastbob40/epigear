@@ -159,4 +159,5 @@ READ_AND_WRITE_AND_VOCAL:
   speak: true
   use_voice_activation: true
 
-DEFAULT: ~
+DEFAULT:
+  external_emojis: true

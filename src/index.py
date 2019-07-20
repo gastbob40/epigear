@@ -21,9 +21,19 @@ async def on_ready():
     await discord_creator.create_role()
     await discord_creator.create_categories_and_channels()
 
+    # await delete_all()
+
 
 def main():
     client.run(config_bot['token'])
+
+
+async def delete_all():
+    validation = input("Are you sure you want to delete ? (Y/N)")
+    if validation != 'Y':
+        return
+    for channel in client.get_guild(601889323801116673).channels:
+        await channel.delete()
 
 
 if __name__ == '__main__':
