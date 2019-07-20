@@ -31,7 +31,7 @@ class ChannelParser:
             vocal_channels = ChannelParser.__get_channels__(data[category_name]['vocal_channels'],
                                                             permissions_groups, roles)
 
-            overwrites = None if not data[category_name]['overwrites'] else \
+            overwrites = {} if not data[category_name]['overwrites'] else \
                 ChannelParser.__overwrites_parser__(data[category_name]['overwrites'], permissions_groups, roles)
 
             default_perm = permissions_groups[data[category_name]['default_perm']].permissions_overwrite
@@ -65,7 +65,7 @@ class ChannelParser:
 
         for channel_name in channels_info:
             logger.debug('Parsing channel {}'.format(channel_name))
-            overwrites = None if not channels_info[channel_name]['overwrites'] else \
+            overwrites = {} if not channels_info[channel_name]['overwrites'] else \
                 ChannelParser.__overwrites_parser__(channels_info[channel_name]['overwrites'],
                                                     permissions_groups, roles)
 

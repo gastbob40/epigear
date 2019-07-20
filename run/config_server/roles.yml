@@ -40,14 +40,6 @@ ACDC:
   permissions: MANAGE_MESSAGE
   mentionable: true
 
-EPITA:
-  name: epita
-  color: 0xffffff
-  hoist: false
-  permissions: DEFAULT
-  mentionable: false
-
-
 # Class
 A1:
   name: A1
@@ -126,9 +118,88 @@ INT3:
   hoist: true
   mentionable: true
 
+LYON:
+  name: Lyon
+  color: 0x1f89dd
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+
+TOULOUSE:
+  name: Toulouse
+  color: 0xcc75a0
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+
+RENNES:
+  name: Rennes
+  color: 0x339914
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+STRASBOURG:
+  name: Strasbourg
+  color: 0xb2d156
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
 SHARP:
   name: SHARP
   color: 0x5f32ff
   permissions: DEFAULT
   hoist: true
   mentionable: true
+
+ALUMNI:
+  name: Alumni
+  color: 0x785bc4
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+ASSO:
+  name: Asso
+  color: 0x000000
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+PARIS:
+  name: Paris
+  color: 0x206694
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+ACU:
+  name: ACU
+  color: 0xc27c0e
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+ASM:
+  name: Paris
+  color: 0x206694
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+YAKA:
+  name: Paris
+  color: 0x206694
+  permissions: DEFAULT
+  hoist: true
+  mentionable: false
+
+EPITA:
+  name: epita
+  color: 0xffffff
+  hoist: false
+  permissions: DEFAULT
+  mentionable: false
