@@ -31,7 +31,7 @@ epita_global:
       overwrites: ~
     staff_epilogin_only:
       # displayed name
-      name: test staff epilogin
+      name: test-staff-epilogin
       #perm overwrites for some roles
       overwrites:
         EPITA: DEFAULT

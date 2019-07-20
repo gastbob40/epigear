@@ -4,8 +4,6 @@ from argparse import ArgumentParser
 import discord
 import yaml
 
-from src.discord_creator.create_role import create_role
-from src.discord_creator.create_channel import create_channel
 from src.discord_creator.discord_creator import DiscordCreator
 from src.models.role import Role
 from src.yaml_parser.permissions_parser import PermissionGroupParser
