@@ -30,7 +30,7 @@ epita_adm:
 
     adm_room:
       # NAME
-      name: Adm_Epita
+      name: adm_Epita
       #PERM
       overwrites:
         STAFF_EPILOGIN: SERVER_ADMIN_PERM
@@ -42,7 +42,7 @@ epita_adm:
 
     acdc_room:
       # NAME
-      name: ACDC_room
+      name: acdc_room
       #PERM
       overwrites:
         STAFF_EPILOGIN: SERVER_ADMIN_PERM
