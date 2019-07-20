@@ -184,21 +184,35 @@ ACU:
   mentionable: false
 
 ASM:
-  name: Paris
-  color: 0x206694
+  name: ASM
+  color: 0x6fe532
   permissions: DEFAULT
   hoist: true
   mentionable: false
 
 YAKA:
-  name: Paris
-  color: 0x206694
+  name: YAKA
+  color: 0x239795
   permissions: DEFAULT
   hoist: true
   mentionable: false
 
 EPITA:
   name: epita
+  color: 0xffffff
+  hoist: false
+  permissions: DEFAULT
+  mentionable: false
+
+EPITAVEUGLE:
+  name: EPITAveugle
+  color: 0xffffff
+  hoist: false
+  permissions: DEFAULT
+  mentionable: false
+
+NESAITPASECRIRE:
+  name: NeSaitPasÉcrire
   color: 0xffffff
   hoist: false
   permissions: DEFAULT
