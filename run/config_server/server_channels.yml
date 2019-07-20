@@ -236,7 +236,7 @@ epita_global:
 
     general:
       # NAME
-      name: annonces
+      name: general
       #PERM
       overwrites:
         STAFF_EPILOGIN: SERVER_ADMIN_PERM
