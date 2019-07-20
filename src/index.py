@@ -1,15 +1,7 @@
-from typing import Dict
 from argparse import ArgumentParser
-
 import discord
 import yaml
-
 from src.discord_creator.discord_creator import DiscordCreator
-from src.models.role import Role
-from src.yaml_parser.permissions_parser import PermissionGroupParser
-from src.yaml_parser.role_parser import RoleParser
-from src.yaml_parser.role_promo_parser import RolePromoParser
-from src.yaml_parser.channels_parser import ChannelParser
 from src.utils import *
 
 # Logger
@@ -23,7 +15,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    logger.info('We have logged in as {0.user}'.format(client))
 
     discord_creator = DiscordCreator(client, config_bot['current_promo'], config_bot['discord_server_id'])
     await discord_creator.create_role()
