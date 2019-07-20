@@ -142,4 +142,4 @@ HIDDEN:
   read_messages: false
 
 DEFAULT:
-  read_messages: none
+  read_messages: false
