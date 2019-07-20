@@ -146,4 +146,17 @@ VOCAL:
   speak: true
   use_voice_activation: true
 
+READ_AND_WRITE_AND_VOCAL:
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  external_emojis: true
+  # Voice channels permissions
+  connect: true
+  speak: true
+  use_voice_activation: true
+
 DEFAULT: ~
