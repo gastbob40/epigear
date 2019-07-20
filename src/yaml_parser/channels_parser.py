@@ -15,7 +15,7 @@ class ChannelParser:
 
     @staticmethod
     def yaml_to_objects(permissions_groups: Dict[str, PermissionGroup], roles: Dict[str, Role]) -> Dict[str, Category]:
-        with open('run/config_server/server_channels.yml', 'r') as stream:
+        with open('run/config_server/server_channels.yml', 'r', encoding='utf8') as stream:
             data = yaml.safe_load(stream)
         logger.info('Get categories from config')
 
@@ -34,7 +34,9 @@ class ChannelParser:
             overwrites = None if not data[category_name]['overwrites'] else \
                 ChannelParser.__overwrites_parser__(data[category_name]['overwrites'], permissions_groups, roles)
 
-            new_category = Category(data[category_name]['name'], overwrites, channels, vocal_channels)
+            default_perm = permissions_groups[data[category_name]['default_perm']].permissions_overwrite
+
+            new_category = Category(data[category_name]['name'], overwrites, channels, vocal_channels, default_perm)
             categories[category_name] = new_category
 
         logger.info('{} categories parsed'.format(len(data)))
@@ -66,7 +68,10 @@ class ChannelParser:
             overwrites = None if not channels_info[channel_name]['overwrites'] else \
                 ChannelParser.__overwrites_parser__(channels_info[channel_name]['overwrites'],
                                                     permissions_groups, roles)
-            new_channel = Channel(channels_info[channel_name]['name'], overwrites)
+
+            default_perm = permissions_groups[channels_info[channel_name]['default_perm']].permissions_overwrite
+
+            new_channel = Channel(channels_info[channel_name]['name'], overwrites, default_perm)
             channels[channel_name] = new_channel
 
         logger.info('{} channels parsed'.format(len(channels_info)))

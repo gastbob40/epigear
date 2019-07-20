@@ -1,15 +1,43 @@
 STAFF_EPILOGIN:
   name: Staff Epilogin
-  color: 0xffff4d
+  color: 0xf1c40f
   hoist: true
-  permissions: ADMIN_PERM
+  permissions: SERVER_ADMIN_PERM
   mentionable: true
 
 ADMIN:
   name: Admin
-  color: 0xffff4d
+  color: 0xf1c40f
   hoist: true
   permissions: ADMIN_PERM
+  mentionable: true
+
+ADM:
+  name: Administration
+  color: 0xe74c3c
+  hoist: true
+  permissions: MANAGE_MESSAGE
+  mentionable: false
+
+PROF:
+  name: Profs
+  color: 0xe74c3c
+  hoist: true
+  permissions: MANAGE_MESSAGE
+  mentionable: false
+
+MODO:
+  name: Modo
+  color: 0xe91e63
+  hoist: true
+  permissions: MODO_PERM
+  mentionable: true
+
+ACDC:
+  name: ACDC
+  color: 0x8c0334
+  hoist: true
+  permissions: MANAGE_MESSAGE
   mentionable: true
 
 EPITA:
@@ -19,96 +47,88 @@ EPITA:
   permissions: DEFAULT
   mentionable: false
 
-#MODO:
-#  name: Modo
-#  color: 0xff6600
-#  hoist: true
-#  permissions: MODO_PERM
-#  mentionable: true
-#
-#ACDC:
-#  name: ACDC
-#  color: 0xb34700
-#  hoist: true
-#  permissions: MANAGE_MESSAGE
-#  mentionable: true
-#
-#
-## Class
-#
-#A1:
-#  name: A1
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#A2:
-#  name: A2
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#B1:
-#  name: B1
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#B2:
-#  name: B2
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#C1:
-#  name: C1
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#C2:
-#  name: D2
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#D1:
-#  name: D1
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#D2:
-#  name: D3
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#INT1:
-#  name: INT1
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#INT2:
-#  name: INT2
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
-#
-#INT3:
-#  name: INT3
-#  color: 0xb34700
-#  permissions: DEFAULT
-#  hoist: true
-#  mentionable: true
+
+# Class
+A1:
+  name: A1
+  color: 0x1abc9c
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+A2:
+  name: A2
+  color: 0x11806a
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+B1:
+  name: B1
+  color: 0x2ecc71
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+B2:
+  name: B2
+  color: 0x1f8b4c
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+C1:
+  name: C1
+  color: 0x3498db
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+C2:
+  name: C2
+  color: 0x206694
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+D1:
+  name: D1
+  color: 0x9b59b6
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+D2:
+  name: D2
+  color: 0x71368a
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+INT1:
+  name: INT1
+  color: 0xe67e22
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+INT2:
+  name: INT2
+  color: 0xa84300
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+INT3:
+  name: INT3
+  color: 0x992d22
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true
+
+SHARP:
+  name: SHARP
+  color: 0x5f32ff
+  permissions: DEFAULT
+  hoist: true
+  mentionable: true

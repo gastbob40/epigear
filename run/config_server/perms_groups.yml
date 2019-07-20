@@ -1,5 +1,5 @@
 # Admin Permission
-ADMIN_PERM:
+SERVER_ADMIN_PERM:
   # Moderation permission
   create_instant_invite: true
   administrator: true
@@ -12,6 +12,42 @@ ADMIN_PERM:
   manage_webhooks: true
   manage_channels: true
   manage_guild: true
+
+  # General permission
+  change_nickname: true
+  add_reactions: true
+
+  # Text channels permissions
+  read_messages: true
+  send_messages: true
+  send_tts_messages: true
+  manage_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  mention_everyone: true
+  external_emojis: true
+
+  # Voice channels permissions
+  connect: true
+  speak: true
+  mute_members: true
+  deafen_members: true
+  move_members: true
+  use_voice_activation: true
+  priority_speaker: true
+
+# Admin Permission
+ADMIN_PERM:
+  # Moderation permission
+  create_instant_invite: true
+  kick_members: true
+  ban_members: true
+  view_audit_log: true
+  manage_nicknames: true
+  manage_roles: true
+  manage_emojis: true
+  manage_channels: true
 
   # General permission
   change_nickname: true
@@ -102,6 +138,8 @@ READ_ONLY:
   read_messages: true
   send_messages: false
 
-DEFAULT:
+HIDDEN:
   read_messages: false
-  send_messages: false
+
+DEFAULT:
+  read_messages: none
