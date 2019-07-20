@@ -117,7 +117,6 @@ MANAGE_MESSAGE:
   external_emojis: true
 
 READ_AND_WRITE_WITHOUT_HISTORY:
-  read_messages: true
   send_messages: true
   send_tts_messages: true
   embed_links: true
@@ -147,5 +146,4 @@ VOCAL:
   speak: true
   use_voice_activation: true
 
-DEFAULT:
-  read_messages: false
+DEFAULT: ~
