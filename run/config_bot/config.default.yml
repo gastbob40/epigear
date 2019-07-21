@@ -1,3 +1,8 @@
+# General information
 discord_server_id: ~
-current_promo: ~
 token: ~
+
+# Clear information
+clear: false
+channels_to_ignore: ~
+roles_to_ignore: ~
