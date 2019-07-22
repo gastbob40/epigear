@@ -48,15 +48,22 @@ The `run` folder contains all the data of the program configuration.
 This folder contain a single file, `default.config.yml`. This file looks like this:
  
 ```yaml
+# General information
 discord_server_id: ~
-current_promo: ~
 token: ~
+
+# Clear information
+clear: false
+channels_to_ignore: ~ 
+roles_to_ignore:   
+    - '@everyone' 
 ```
 
 You will therefore have to modify in this file the `discord_server_id` by the one of the server where you want to run the bot.
-Also remember to put the `token` of your bot discord
+Also remember to put the `token` of your bot discord.
 
-> The `current_promo` line is only used for EPITA, it is not to be filled in for other uses
+You can also choose to delete the roles and channels of the server in question before creating the new roles and channels.
+The `channels_to_ignore` and `roles_to_ignore` are lists of name of role / channel
 
 ### config_server
 
@@ -97,27 +104,39 @@ The file contains the list of categories and channels for the server
 For example:
 
 ```yml
-epita_adm:                   # The name of the object
-  name: EPITA/ADM👥          # Name of the category 
-  overwrites: ~              # General permission (link to perms_group.yml)
-  default_perm: HIDDEN       # The default perm 
+ CATEGORY
+my_category: # name of the variable
+  # NAME
+  name: MY_CATEGORY # name displayed in discord
+  # PERM
+  overwrites:
+    ROLE: HIDDEN # overwrites for the category : couple of ROLE and PERM_GROUP (linked to perms_groups.yml)
+  # EVERYONE
+  default_perm: HIDDEN # PERM_GROUP for the role everyone (can not be null)
+  # CHANNELS
+  channels: # list of the channels in your category
 
-  channels:                  # List of channel 
-    administration:          # Name of the object
-      name: administration   # Name of the channel
-      overwrites:            # Overwrited permission
-        STAFF_EPILOGIN: SERVER_ADMIN_PERM   # role (link to roles.yml): permisision (link to perms_group.yml)
-        ADMIN: ADMIN_PERM                   # Also
-      default_perm: HIDDEN   # Default perm
+    my_text_channel:
+      # NAME
+      name: my-text-channel # name of the channel in discord
+      #PERM
+      overwrites: # overwrites for the channel : couple of ROLE and PERM_GROUP
+        ROLE: DEFAULT # overwrites the permission of the category set previously
+      default_perm: HIDDEN # PERM_GROUP for the role everyone (can not be null)
 
-  vocal_channels:            # Same things for vocal channel
-    reunion:
-      name: Réunion
-      overwrites:
-        STAFF_EPILOGIN: SERVER_ADMIN_PERM
-        ADMIN: ADMIN_PERM
-        MODO: VOCAL
-        ADM: VOCAL
-        PROF: VOCAL
-      default_perm: HIDDEN
+  # VOCAL CHANNELS
+  vocal_channels: #list of the voice channels in your category
+
+    my_voice_channel:
+      # NAME
+      name: my_voice_channel
+      #PERM
+      overwrites: # overwrites for the channel : couple of ROLE and PERM_GROUP
+        ROLE: VOCAL # overwrites the permission of the category set previously
+      default_perm: HIDDEN # PERM_GROUP for the role everyone (can not be null)
 ```
+
+Note that in discord, the name of the channels and categories follow some rules :
+ - the name of a category is in upper case (example: MY_CATEGORY)
+ - the name of a channel (text or vocal) is in lower case and space will be filled with '-'
+You can write the names you want in the config file but they will not appear in discord as they are written here
