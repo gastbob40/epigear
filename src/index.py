@@ -19,10 +19,15 @@ async def on_ready():
 
     discord_creator = DiscordCreator(client, config_bot['discord_server_id'])
 
-    if config_bot['clear']:
+    if config_bot['clear_channels']:
         channels_to_ignore = config_bot['channels_to_ignore'] if not config_bot['channels_to_ignore'] is None else []
+        logger.debug('clearing all channels in server except : {}'.format(channels_to_ignore))
+        await discord_creator.delete_channels(channels_to_ignore)
+        
+    if config_bot['clear_roles']:
         roles_to_ignore = config_bot['roles_to_ignore'] if not config_bot['roles_to_ignore'] is None else []
-        await discord_creator.delete_all(channels_to_ignore, roles_to_ignore)
+        logger.debug('clearing all roles in server except : {}'.format(roles_to_ignore))
+        await discord_creator.delete_roles(roles_to_ignore)
 
     await discord_creator.create_role()
     await discord_creator.create_categories_and_channels()
