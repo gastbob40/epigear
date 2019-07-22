@@ -3,6 +3,7 @@ discord_server_id: ~
 token: ~
 
 # Clear information
-clear: false
+clear_roles: false
+clear_channels: false
 channels_to_ignore: ~
 roles_to_ignore: ~
