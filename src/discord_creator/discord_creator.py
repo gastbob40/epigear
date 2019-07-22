@@ -25,6 +25,7 @@ class DiscordCreator:
         self.guild = client.get_guild(guild_id)
 
     async def create_role(self):
+        logger.info('Creating roles in server')
         for role_name in self.roles:
             role = self.roles[role_name]
 
@@ -45,6 +46,7 @@ class DiscordCreator:
             self.roles[role_name].set_role(discord_role)
 
     async def create_categories_and_channels(self):
+        logger.info('Creating channels in server')
         categories = ChannelParser.yaml_to_objects(self.permissions_groups, self.roles)
         for category_name in categories:
             category = categories[category_name]
@@ -97,12 +99,13 @@ class DiscordCreator:
                     for role in voice_channel.overwrites:
                         await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])
 
-    async def delete_all(self, channels_to_ignore: List[str], roles_to_ignore: List[str]):
+    async def delete_channels(self, channels_to_ignore: List[str]):
         logger.info('Deleting channels')
         for channel in self.client.get_guild(601889323801116673).channels:
             if channel.name not in channels_to_ignore:
                 await channel.delete()
-
+                
+    async def delete_roles(self, roles_to_ignore: List[str]):
         logger.info('Deleting roles')
         for role in self.client.get_guild(601889323801116673).roles:
             if role.name not in roles_to_ignore:
