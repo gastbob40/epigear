@@ -139,4 +139,5 @@ my_category: # name of the variable
 Note that in discord, the name of the channels and categories follow some rules :
  - the name of a category is in upper case (example: MY_CATEGORY)
  - the name of a channel (text or vocal) is in lower case and space will be filled with '-'
+
 You can write the names you want in the config file but they will not appear in discord as they are written here
