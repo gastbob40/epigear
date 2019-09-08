@@ -7,6 +7,7 @@ import logging
 from src.models.channels import Channel, Category
 from src.models.role import Role
 from src.models.permission_group import PermissionGroup
+from src.utils import channel_name_format
 
 logger = logging.getLogger()
 
@@ -71,7 +72,7 @@ class ChannelParser:
 
             default_perm = permissions_groups[channels_info[channel_name]['default_perm']].permissions_overwrite
 
-            new_channel = Channel(channels_info[channel_name]['name'], overwrites, default_perm)
+            new_channel = Channel(channel_name_format(channels_info[channel_name]['name']), overwrites, default_perm)
             channels[channel_name] = new_channel
 
         logger.info('{} channels parsed'.format(len(channels_info)))

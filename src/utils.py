@@ -7,3 +7,11 @@ def define_logger(args):
     level = logging.INFO if not args.debug else logging.DEBUG
     logging.basicConfig(level=level, stream=sys.stdout, format=log_format)
     logging.captureWarnings(True)
+
+
+def channel_name_format(name: str):
+    return str.lower(name).replace(' ', '-')
+
+
+def category_name_format(name: str):
+    return str.upper(name)

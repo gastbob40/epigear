@@ -12,7 +12,7 @@ class PermissionGroupParser:
     @staticmethod
     def yaml_to_objects() -> Dict[str, PermissionGroup]:
         logger.info('Get permission groups from config')
-        with open('run/config_server/perms_groups.yml', 'r') as stream:
+        with open('run/config_server/perms_groups.yml', 'r', encoding='utf8') as stream:
             data = yaml.safe_load(stream)
         perm_groups = {}
 
