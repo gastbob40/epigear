@@ -17,7 +17,7 @@ client = discord.Client()
 async def on_ready():
     logger.info('We have logged in as {0.user}'.format(client))
 
-    discord_creator = DiscordCreator(client, config_bot['current_promo'], config_bot['discord_server_id'])
+    discord_creator = DiscordCreator(client, config_bot['discord_server_id'])
 
     if config_bot['clear_channels']:
         channels_to_ignore = config_bot['channels_to_ignore'] if config_bot['channels_to_ignore'] is not None else []

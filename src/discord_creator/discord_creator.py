@@ -15,17 +15,16 @@ logger = logging.getLogger()
 class DiscordCreator:
     permissions_groups: Dict[str, PermissionGroup]
     roles: Dict[str, Role]
-    promo_roles: Dict[str, Role]
     all_roles: Dict[str, Role]
     client: discord.Client
     guild: discord.Guild
     guild_id: int
 
-    def __init__(self, client: discord.Client, current_promo: int, guild_id: int):
+    def __init__(self, client: discord.Client, guild_id: int):
         # Get data from parser
         self.permissions_groups = PermissionGroupParser.yaml_to_objects()
         self.roles = RoleParser.yaml_to_objects(self.permissions_groups)
-        self.all_roles: Dict[str, Role] = {**self.roles, **self.promo_roles}
+        self.all_roles: Dict[str, Role] = {**self.roles}
         self.client = client
         self.guild = client.get_guild(guild_id)
         self.guild_id = guild_id
