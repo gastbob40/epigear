@@ -47,7 +47,9 @@ ADMIN_PERM:
   manage_nicknames: true
   manage_roles: true
   manage_emojis: true
+  manage_webhooks: true
   manage_channels: true
+  manage_guild: true
 
   # General permission
   change_nickname: true
@@ -79,6 +81,9 @@ MODO_PERM:
   create_instant_invite: true
   kick_members: true
   manage_roles: true
+  manage_emojis: true
+  manage_channels: true
+  manage_nicknames: true
 
   # General permission
   change_nickname: true
@@ -87,11 +92,11 @@ MODO_PERM:
   # Text channels permissions
   read_messages: true
   send_messages: true
-  send_tts_messages: true
   manage_messages: true
   embed_links: true
   attach_files: true
   read_message_history: true
+  mention_everyone: true
   external_emojis: true
 
   # Voice channels permissions
@@ -103,31 +108,30 @@ MODO_PERM:
   use_voice_activation: true
   priority_speaker: true
 
-
 # General Permission Group
 
 MANAGE_MESSAGE:
+  # General permission
+  change_nickname: true
+  add_reactions: true
+
+  # Text channels permissions
   read_messages: true
   send_messages: true
-  send_tts_messages: true
   manage_messages: true
   embed_links: true
   attach_files: true
   read_message_history: true
   external_emojis: true
 
-READ_AND_WRITE_WITHOUT_HISTORY:
-  send_messages: true
-  send_tts_messages: true
-  embed_links: true
-  attach_files: true
-  read_message_history: false
-  external_emojis: true
-
 READ_AND_WRITE:
+  # General permission
+  change_nickname: true
+  add_reactions: true
+
+  # Text channels permissions
   read_messages: true
   send_messages: true
-  send_tts_messages: true
   embed_links: true
   attach_files: true
   read_message_history: true
@@ -135,6 +139,7 @@ READ_AND_WRITE:
 
 READ_ONLY:
   read_messages: true
+  add_reactions: true
   send_messages: false
 
 HIDDEN:
@@ -147,17 +152,25 @@ VOCAL:
   use_voice_activation: true
 
 READ_AND_WRITE_AND_VOCAL:
+  # General permission
+  change_nickname: true
+  add_reactions: true
+
+  # Text channels permissions
   read_messages: true
   send_messages: true
-  send_tts_messages: true
   embed_links: true
   attach_files: true
   read_message_history: true
   external_emojis: true
+
   # Voice channels permissions
   connect: true
   speak: true
   use_voice_activation: true
 
 DEFAULT:
+  # General permission
+  change_nickname: true
+  add_reactions: true
   external_emojis: true

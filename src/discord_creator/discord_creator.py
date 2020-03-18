@@ -29,9 +29,12 @@ class DiscordCreator:
         self.guild = client.get_guild(guild_id)
         self.guild_id = guild_id
 
-    async def create_role(self):
+    async def create_role(self, roles_to_ignore: List[str]):
         for role_name in self.all_roles:
             role = self.all_roles[role_name]
+
+            if role.name in roles_to_ignore:
+                continue
 
             discord_role: discord.Role = discord.utils.get(self.guild.roles, name=role.name)
 
@@ -58,7 +61,7 @@ class DiscordCreator:
             discord_category: discord.CategoryChannel = discord.utils.get(self.guild.categories, name=category.name)
             # Add the default role
             category.overwrites[self.guild.default_role] = category.default_perm
-            if discord_category == None:
+            if discord_category is None:
                 discord_category = await self.guild.create_category_channel(name=category.name,
                                                                             overwrites=category.overwrites)
             else:
@@ -72,7 +75,7 @@ class DiscordCreator:
                 discord_channel: discord.TextChannel = \
                     discord.utils.get(self.guild.text_channels, name=text_channel.name, category_id=discord_category.id)
 
-                if discord_channel == None:
+                if discord_channel is None:
                     discord_channel = await self.guild.create_text_channel(name=text_channel.name,
                                                                            category=discord_category)
                     await discord_channel.edit(sync_permissions=True)
@@ -91,7 +94,7 @@ class DiscordCreator:
                     discord.utils.get(self.guild.voice_channels, name=voice_channel.name,
                                       category_id=discord_category.id)
 
-                if discord_channel == None:
+                if discord_channel is None:
                     discord_channel = await self.guild.create_voice_channel(name=voice_channel.name,
                                                                             category=discord_category)
                     await discord_channel.edit(sync_permissions=True)
