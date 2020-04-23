@@ -1,6 +1,6 @@
 # EpiGear
 
-![Discord](https://img.shields.io/badge/Discord-project-brightgreen)
+![Discord](https://img.shields.io/badge/Discord-Project-success)
 ![python](https://img.shields.io/badge/Language-Python-blueviolet)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
