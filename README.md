@@ -1,5 +1,11 @@
 # EpiGear
 
+![Discord](https://img.shields.io/badge/Discord-project-brightgreen)
+![python](https://img.shields.io/badge/Language-Python-blueviolet)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+![EpiGear Banner](src/assets/banner.png)
+
 ## About
 
 EpiGear is a discord bot for server creation, and includes several points.
@@ -9,35 +15,53 @@ EpiGear is a discord bot for server creation, and includes several points.
 - Update of the channels and roles even after their creation
 - All based on a configuration file
 
+EpiGear is a project by [gastbob40](https://github.com/gastbob40) and [Baptman21](https://github.com/bat021).
+
 ## How to install it ?
 
-1. First, you will have to clone the project.
+1. **First, you will have to clone the project.**
 
 ```shell
 git clone https://github.com/gastbob40/epigear
 ```
 
-2. Consider creating a `virtual environment`, in order to install dependencies locally.
+2. **Create a `virtual environment`, in order to install dependencies locally.** For more information about virtual environments, [click here](https://docs.python.org/3/library/venv.html).
 
 ```shell
-python -m venv venv
+python -m venv .venv
 ```
 
-3. You need to activate the virtual environment now
+3. **Activate the virtual environment**
+
+Linux/macOS:
 
 ```shell
-# If you are on Linux or Mac ?
-source venv/bin/activate 
-
-# If you are on Windows
-./venv/Scripts/activate
+# Using bash/zsh
+source .venv/bin/activate
+# Using fish
+. .venv/bin/activate.fish
+# Using csh/tcsh
+source .venv/bin/activate.csh
 ``` 
 
-4. Finally, install the dependencies
+Windows:
+
+```
+# cmd.exe
+.venv\Scripts\activate.bat
+# PowerShell
+.venv\Scripts\Activate.ps1
+```
+
+4. **Finally, install the dependencies**
 
 ````shell
 pip install requirements.txt
 ````
+
+5. **Configure EpiGear**. This is necessary to use the bot. Check the next section for instructions.
+
+6. **Run `python index.py` to launch EpiGear.** Also make sure that the venv is activated when you launch EpiGear (you should see `venv` to the left of your command prompt).
 
 ## How it works ?
 
