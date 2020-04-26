@@ -47,9 +47,9 @@ ADMIN_PERM:
   manage_nicknames: true
   manage_roles: true
   manage_emojis: true
-  manage_webhooks: true
   manage_channels: true
   manage_guild: true
+  manage_webhooks: true
 
   # General permission
   change_nickname: true
@@ -80,10 +80,10 @@ MODO_PERM:
   # Moderation permission
   create_instant_invite: true
   kick_members: true
+  manage_nicknames: true
   manage_roles: true
   manage_emojis: true
   manage_channels: true
-  manage_nicknames: true
 
   # General permission
   change_nickname: true
@@ -124,6 +124,15 @@ MANAGE_MESSAGE:
   read_message_history: true
   external_emojis: true
 
+  # Voice channels permissions
+  connect: true
+  speak: true
+  mute_members: true
+  deafen_members: true
+  move_members: true
+  use_voice_activation: true
+
+
 READ_AND_WRITE:
   # General permission
   change_nickname: true
@@ -141,12 +150,15 @@ READ_ONLY:
   read_messages: true
   add_reactions: true
   send_messages: false
+  read_message_history: true
+  external_emojis: true
 
 HIDDEN:
   read_messages: false
 
 VOCAL:
   # Voice channels permissions
+  read_messages: true
   connect: true
   speak: true
   use_voice_activation: true

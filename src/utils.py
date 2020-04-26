@@ -23,13 +23,6 @@ def define_logger(args):
     handler_stderr.setFormatter(f)
     logger.addHandler(handler_stderr)
 
-    logger.info("a")
-    logger.debug("a")
-    logger.warning("a")
-    logger.error("a")
-
-
-
 
 def channel_name_format(name: str):
     return str.lower(name).replace(' ', '-')
