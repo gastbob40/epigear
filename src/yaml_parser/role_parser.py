@@ -5,7 +5,7 @@ import logging
 from src.models.role import Role
 from src.models.permission_group import PermissionGroup
 
-logger = logging.getLogger()
+logger = logging.getLogger("epigear_logger")
 
 
 class RoleParser:

@@ -7,7 +7,7 @@ import discord
 from src.models.permission_group import PermissionGroup
 from src.yaml_parser.permissions_parser import PermissionGroupParser
 
-logger = logging.getLogger()
+logger = logging.getLogger("epigear_logger")
 
 
 class ConfigBuilder:

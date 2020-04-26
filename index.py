@@ -6,9 +6,9 @@ from src.config_builder.config_builder import ConfigBuilder
 from src.utils import *
 
 # Logger
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("epigear_logger")
 
-with open('run/config_bot/config.yml', 'r') as stream:
+with open('run/config_bot/config.yml', 'r', encoding='utf8') as stream:
     config_bot = yaml.safe_load(stream)
 
 client = discord.Client()

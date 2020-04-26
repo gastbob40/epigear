@@ -9,7 +9,7 @@ from src.yaml_parser.channels_parser import ChannelParser
 from src.yaml_parser.permissions_parser import PermissionGroupParser
 from src.yaml_parser.role_parser import RoleParser
 
-logger = logging.getLogger()
+logger = logging.getLogger("epigear_logger")
 
 
 class DiscordCreator:

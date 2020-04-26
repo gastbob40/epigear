@@ -158,7 +158,7 @@ epita_promo:                    # The name of the object
   channels:                     # The list of texts channel
     promo:                      # The name of the object
       name: PROMO               # The name of the channel (in discord)
-      overwrites:               # The overwrited permission
+      overwrites:               # The overwritten permission
         STAFF_EPILOGIN: SERVER_ADMIN_PERM   # Role (from roles.yml): perms group (from perms_group.yml)
         ADMIN: ADMIN_PERM
       default_perm: HIDDEN      # Default perm (for everyone role)
@@ -166,7 +166,7 @@ epita_promo:                    # The name of the object
   vocal_channels:               # The list of voice channel
     general:                    # The name of the object
       name: General             # The name of the voice channel (in discord)
-      overwrites: ~             # The overwrited permissions
+      overwrites: ~             # The overwritten permissions
       default_perm: HIDDEN      # The default perm
 ```
 

@@ -9,7 +9,7 @@ from src.models.role import Role
 from src.models.permission_group import PermissionGroup
 from src.utils import channel_name_format
 
-logger = logging.getLogger()
+logger = logging.getLogger("epigear_logger")
 
 
 class ChannelParser:
