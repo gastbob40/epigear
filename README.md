@@ -14,6 +14,7 @@ EpiGear is a discord bot for server creation, and includes several points.
 - Creation of a channel and category according to these permissions
 - Update of the channels and roles even after their creation
 - All based on a configuration file
+- 
 
 EpiGear is a project by [gastbob40](https://github.com/gastbob40) and [Baptman21](https://github.com/bat021).
 
