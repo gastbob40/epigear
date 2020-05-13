@@ -28,7 +28,7 @@ git clone https://github.com/gastbob40/epigear
 2. **Create a `virtual environment`, in order to install dependencies locally.** For more information about virtual environments, [click here](https://docs.python.org/3/library/venv.html).
 
 ```shell
-python -m venv .venv
+python3 -m venv .venv
 ```
 
 3. **Activate the virtual environment**
@@ -56,7 +56,7 @@ Windows:
 4. **Finally, install the dependencies**
 
 ````shell
-pip install requirements.txt
+pip3 install -r requirements.txt
 ````
 
 5. **Configure EpiGear**. This is necessary to use the bot. Check the next section for instructions.
@@ -74,14 +74,12 @@ This folder contain a single file, `default.config.yml`. This file looks like th
 ```yaml
 # General information
 discord_server_id: ~
-current_promo: ~
 token: ~
 
 # Clear information
 clear: false
 channels_to_ignore: ~ 
-roles_to_ignore:   
-    - '@everyone' 
+roles_to_ignore: ~
 ```
 
 You will therefore have to modify in this file the `discord_server_id` by the one of the server where you want to run the bot.
@@ -207,7 +205,7 @@ To start the bot, just start the `index.py` file in the `run` folder.
 In addition to the default mode that allows you to create channels, you can use the bot to create a config from a server.
 To do that use the argument :  
 ```
--m build
+python3 index.py -m build
 ```
 
 The bot will then read the roles and channels from the server that you specified in `config.yml`

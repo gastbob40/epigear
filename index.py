@@ -42,7 +42,7 @@ async def on_ready():
         await create()
     elif mode == 'build':
         await build()
-    quit()
+    await client.logout()
 
 
 def main():

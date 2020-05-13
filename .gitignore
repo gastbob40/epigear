@@ -1,4 +1,10 @@
-.idea/
-venv/
+# python
 __pycache__/
-config.yml
+
+# dev
+.idea/
+.venv/
+.vscode/
+
+# config
+/run/config_bot/config.yml

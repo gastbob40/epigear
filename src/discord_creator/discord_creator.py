@@ -115,7 +115,7 @@ class DiscordCreator:
     async def delete_roles(self, roles_to_ignore: List[str]):
         logger.info('Deleting roles')
         for role in self.client.get_guild(self.guild_id).roles:
-            if role.name not in roles_to_ignore:
+            if role.name not in roles_to_ignore and not role.managed and not role.is_default():
                 await role.delete()
 
     async def get_roles_id(self):
