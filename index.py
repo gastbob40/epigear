@@ -27,7 +27,6 @@ async def create():
 
     await discord_creator.create_role(roles_to_ignore)
     await discord_creator.create_categories_and_channels()
-    await discord_creator.get_roles_id()
 
 
 async def build():

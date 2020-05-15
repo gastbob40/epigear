@@ -35,8 +35,8 @@ class ConfigBuilder:
 
     @staticmethod
     def normalize_name(name: str) -> str:
-        for old, new in zip(['(', ')', 'é', 'à', 'è', 'ê', 'ô', 'û', '-', ' '],
-                            ['', '', 'e', 'a', 'e', 'e', 'o', 'u', '_', '_']):
+        for old, new in zip(['(', ')', 'é', 'à', 'è', 'ê', 'ô', 'û', '-', ' ', '\''],
+                            ['', '', 'e', 'a', 'e', 'e', 'o', 'u', '_', '_', '_']):
             name = name.replace(old, new)
         return name.upper()
 
