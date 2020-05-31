@@ -68,6 +68,7 @@ class ConfigBuilder:
                         overwrites[ConfigBuilder.normalize_name(role.name)] = self.get_perm_overwrite_group(overwrite)
                 default = self.get_perm_overwrite_group(chan.overwrites_for(self.guild.default_role))
                 text_channels[ConfigBuilder.normalize_name(chan.name)] = {"name": chan.name,
+                                                                          "topic": chan.topic,
                                                                           "overwrites": overwrites.copy(),
                                                                           "default_perm": default}
             for chan in cat.voice_channels:
