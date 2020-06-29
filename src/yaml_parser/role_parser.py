@@ -20,7 +20,7 @@ class RoleParser:
 
         for role_name in data:
             logger.debug('Parsing role {}'.format(role_name))
-            new_role = Role(data[role_name]['name'], data[role_name]['color'],
+            new_role = Role(data[role_name]['name'], int(data[role_name]['color'], 16),
                             permissions_groups[data[role_name]['permissions']], data[role_name]['hoist'],
                             data[role_name]['mentionable'])
             roles[role_name] = new_role

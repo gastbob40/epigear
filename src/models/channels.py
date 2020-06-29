@@ -9,12 +9,14 @@ class Channel:
     name: str
     overwrites: Dict[RoleDiscord, PermissionOverwrite]
     default_perm: PermissionOverwrite
+    topic: str
 
     def __init__(self, name: str, overwrites: Dict[RoleDiscord, PermissionOverwrite],
-                 default_perm: PermissionOverwrite):
+                 default_perm: PermissionOverwrite, topic: str = ""):
         self.name = name
         self.overwrites = overwrites
         self.default_perm = default_perm
+        self.topic = topic
 
 
 class Category(Channel):

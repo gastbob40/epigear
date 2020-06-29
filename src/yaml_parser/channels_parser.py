@@ -72,7 +72,12 @@ class ChannelParser:
 
             default_perm = permissions_groups[channels_info[channel_name]['default_perm']].permissions_overwrite
 
-            new_channel = Channel(channel_name_format(channels_info[channel_name]['name']), overwrites, default_perm)
+            topic = "" if "topic" not in channels_info[channel_name] else channels_info[channel_name]["topic"]
+
+            new_channel = Channel(channel_name_format(channels_info[channel_name]['name']),
+                                  overwrites,
+                                  default_perm,
+                                  topic)
             channels[channel_name] = new_channel
 
         logger.info('{} channels parsed'.format(len(channels_info)))

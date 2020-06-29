@@ -30,32 +30,41 @@ class DiscordCreator:
         self.guild_id = guild_id
 
     async def create_role(self, roles_to_ignore: List[str]):
+        logger.info("Creating/Updating roles")
         for role_name in self.all_roles:
             role = self.all_roles[role_name]
 
             if role.name in roles_to_ignore:
+                logger.debug("role {}:{} ignored".format(role_name, role.name))
                 continue
+
+            logger.debug("creating/updating role {}:{}".format(role_name, role.name))
 
             discord_role: discord.Role = discord.utils.get(self.guild.roles, name=role.name)
 
-            if discord_role == None:
+            if discord_role is None:
                 discord_role = await self.guild.create_role(name=role.name,
                                                             permissions=role.permissions.permissions,
                                                             colour=role.color,
-                                                            hoist=role.mentionable,
+                                                            hoist=role.hoist,
                                                             mentionable=role.mentionable)
             else:
                 await discord_role.edit(name=role.name,
                                         permissions=role.permissions.permissions,
                                         colour=role.color,
-                                        hoist=role.mentionable,
+                                        hoist=role.hoist,
                                         mentionable=role.mentionable)
             self.all_roles[role_name].set_role(discord_role)
+        logger.info("All roles created/updated")
 
     async def create_categories_and_channels(self):
+
+        logger.info("Creating/Updating categories and channels")
         categories = ChannelParser.yaml_to_objects(self.permissions_groups, self.all_roles)
+
         for category_name in categories:
             category = categories[category_name]
+            logger.debug("creating/updating category {}:{}".format(category_name, category.name))
 
             # Create discord category
             discord_category: discord.CategoryChannel = discord.utils.get(self.guild.categories, name=category.name)
@@ -71,6 +80,7 @@ class DiscordCreator:
             # Create discord channel
             for text_channel_name in category.channels:
                 text_channel = category.channels[text_channel_name]
+                logger.debug("creating/updating text channel {}:{}".format(text_channel_name, text_channel.name))
                 text_channel.overwrites[self.guild.default_role] = text_channel.default_perm
                 discord_channel: discord.TextChannel = \
                     discord.utils.get(self.guild.text_channels, name=text_channel.name, category_id=discord_category.id)
@@ -78,17 +88,13 @@ class DiscordCreator:
                 if discord_channel is None:
                     discord_channel = await self.guild.create_text_channel(name=text_channel.name,
                                                                            category=discord_category)
-                    await discord_channel.edit(sync_permissions=True)
-                    for role in text_channel.overwrites:
-                        await discord_channel.set_permissions(role, overwrite=text_channel.overwrites[role])
-
-                else:
-                    await discord_channel.edit(sync_permissions=True)
-                    for role in text_channel.overwrites:
-                        await discord_channel.set_permissions(role, overwrite=text_channel.overwrites[role])
+                await discord_channel.edit(sync_permissions=True, topic=text_channel.topic)
+                for role in text_channel.overwrites:
+                    await discord_channel.set_permissions(role, overwrite=text_channel.overwrites[role])
 
             for voice_channel_name in category.vocal_channels:
                 voice_channel = category.vocal_channels[voice_channel_name]
+                logger.debug("creating/updating voice channel {}:{}".format(voice_channel_name, voice_channel.name))
                 voice_channel.overwrites[self.guild.default_role] = voice_channel.default_perm
                 discord_channel: discord.VoiceChannel = \
                     discord.utils.get(self.guild.voice_channels, name=voice_channel.name,
@@ -97,14 +103,10 @@ class DiscordCreator:
                 if discord_channel is None:
                     discord_channel = await self.guild.create_voice_channel(name=voice_channel.name,
                                                                             category=discord_category)
-                    await discord_channel.edit(sync_permissions=True)
-                    for role in voice_channel.overwrites:
-                        await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])
-
-                else:
-                    await discord_channel.edit(sync_permissions=True)
-                    for role in voice_channel.overwrites:
-                        await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])
+                await discord_channel.edit(sync_permissions=True)
+                for role in voice_channel.overwrites:
+                    await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])
+        logger.info("All categories and channels created/updated")
 
     async def delete__channels(self, channels_to_ignore: List[str]):
         logger.info('Deleting channels')
@@ -121,4 +123,5 @@ class DiscordCreator:
     async def get_roles_id(self):
         for role in self.all_roles:
             discord_role: discord.Role = self.all_roles[role].role_discord
-            print(f'{discord_role.name} : {discord_role.id}')
+            if discord_role is not None:
+                print(f'{discord_role.name} : {discord_role.id}')
