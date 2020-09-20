@@ -6,6 +6,7 @@ import discord
 
 from src.models.permission_group import PermissionGroup
 from src.yaml_parser.permissions_parser import PermissionGroupParser
+from src.utils import channel_name_format, category_name_format
 
 logger = logging.getLogger("epigear_logger")
 
@@ -67,7 +68,7 @@ class ConfigBuilder:
                             continue
                         overwrites[ConfigBuilder.normalize_name(role.name)] = self.get_perm_overwrite_group(overwrite)
                 default = self.get_perm_overwrite_group(chan.overwrites_for(self.guild.default_role))
-                text_channels[ConfigBuilder.normalize_name(chan.name)] = {"name": chan.name,
+                text_channels[ConfigBuilder.normalize_name(chan.name)] = {"name": channel_name_format(chan.name),
                                                                           "topic": chan.topic,
                                                                           "overwrites": overwrites.copy(),
                                                                           "default_perm": default}
@@ -79,7 +80,7 @@ class ConfigBuilder:
                             continue
                         overwrites[ConfigBuilder.normalize_name(role.name)] = self.get_perm_overwrite_group(overwrite)
                 default = self.get_perm_overwrite_group(chan.overwrites_for(self.guild.default_role))
-                voice_channels[ConfigBuilder.normalize_name(chan.name)] = {"name": chan.name,
+                voice_channels[ConfigBuilder.normalize_name(chan.name)] = {"name": channel_name_format(chan.name),
                                                                            "overwrites": overwrites.copy(),
                                                                            "default_perm": default}
             overwrites = {}
@@ -88,7 +89,7 @@ class ConfigBuilder:
                     continue
                 overwrites[ConfigBuilder.normalize_name(role.name)] = self.get_perm_overwrite_group(overwrite)
             default = self.get_perm_overwrite_group(cat.overwrites_for(self.guild.default_role))
-            categories[ConfigBuilder.normalize_name(cat.name)] = {"name": cat.name,
+            categories[ConfigBuilder.normalize_name(cat.name)] = {"name": category_name_format(cat.name),
                                                                   "overwrites": overwrites.copy(),
                                                                   "default_perm": default,
                                                                   "channels": text_channels,

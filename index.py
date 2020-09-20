@@ -39,9 +39,11 @@ async def on_ready():
     logger.info('We have logged in as {0.user}'.format(client))
     if mode == 'create':
         await create()
+        logger.info('Creation of Channels/Categories done')
     elif mode == 'build':
         await build()
-    await client.logout()
+        logger.info('Creation of Configuration Files done')
+    # await client.logout()
 
 
 def main():
