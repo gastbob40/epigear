@@ -36,6 +36,7 @@ SERVER_ADMIN_PERM:
   move_members: true
   use_voice_activation: true
   priority_speaker: true
+  stream: true
 
 # Admin Permission
 ADMIN_PERM:
@@ -74,12 +75,14 @@ ADMIN_PERM:
   move_members: true
   use_voice_activation: true
   priority_speaker: true
+  stream: true
 
 # Modo Permission
 MODO_PERM:
   # Moderation permission
   create_instant_invite: true
   kick_members: true
+  view_audit_log: true
   manage_nicknames: true
   manage_roles: true
   manage_emojis: true
@@ -107,12 +110,12 @@ MODO_PERM:
   move_members: true
   use_voice_activation: true
   priority_speaker: true
+  stream: true
 
-# General Permission Group
+# General Permission Group for text channels
 
 MANAGE_MESSAGE:
   # General permission
-  change_nickname: true
   add_reactions: true
 
   # Text channels permissions
@@ -123,15 +126,6 @@ MANAGE_MESSAGE:
   attach_files: true
   read_message_history: true
   external_emojis: true
-
-  # Voice channels permissions
-  connect: true
-  speak: true
-  mute_members: true
-  deafen_members: true
-  move_members: true
-  use_voice_activation: true
-
 
 READ_AND_WRITE:
   # General permission
@@ -158,9 +152,9 @@ HIDDEN:
 
 VOCAL:
   # Voice channels permissions
-  read_messages: true
   connect: true
   speak: true
+  stream: true
   use_voice_activation: true
 
 READ_AND_WRITE_AND_VOCAL:
@@ -179,6 +173,7 @@ READ_AND_WRITE_AND_VOCAL:
   # Voice channels permissions
   connect: true
   speak: true
+  stream: true
   use_voice_activation: true
 
 DEFAULT:
@@ -186,3 +181,51 @@ DEFAULT:
   change_nickname: true
   add_reactions: true
   external_emojis: true
+
+EPIMODO:
+  # Moderation permission
+  kick_members: true
+  ban_members: true
+
+  # General permission
+  add_reactions: true
+
+  # Text channels permissions
+  read_messages: true
+  send_messages: true
+  manage_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  external_emojis: true
+
+  # Voice channels permissions
+  connect: true
+  mute_members: true
+  deafen_members: true
+  move_members: true
+  
+EPILINK:
+  manage_nicknames: true
+  manage_roles: true
+  
+  change_nickname: true
+  add_reactions: true
+  
+GROOVY:
+  # General permission
+  add_reactions: true
+
+  # Text channels permissions
+  read_messages: true
+  send_messages: true
+  embed_links: true
+  attach_files: true
+  read_message_history: true
+  external_emojis: true
+
+  # Voice channels permissions
+  connect: true
+  speak: true
+  stream: true
+  use_voice_activation: true

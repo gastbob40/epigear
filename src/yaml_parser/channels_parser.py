@@ -7,7 +7,7 @@ import logging
 from src.models.channels import Channel, Category
 from src.models.role import Role
 from src.models.permission_group import PermissionGroup
-from src.utils import channel_name_format
+from src.utils.utils import channel_name_format
 
 logger = logging.getLogger("epigear_logger")
 
@@ -16,7 +16,7 @@ class ChannelParser:
 
     @staticmethod
     def yaml_to_objects(permissions_groups: Dict[str, PermissionGroup], roles: Dict[str, Role]) -> Dict[str, Category]:
-        with open('run/config_server/server_channels.yml', 'r', encoding='utf8') as stream:
+        with open('run/config_servers/server_channels.yml', 'r', encoding='utf8') as stream:
             data = yaml.safe_load(stream)
         logger.info('Get categories from config')
 

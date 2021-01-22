@@ -2,7 +2,7 @@ from typing import Dict
 from discord import Role as RoleDiscord
 from discord import PermissionOverwrite
 
-from src.utils import category_name_format
+from src.utils.utils import category_name_format
 
 
 class Channel:

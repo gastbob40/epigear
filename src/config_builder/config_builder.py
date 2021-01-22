@@ -1,12 +1,12 @@
 import logging
-from typing import Dict, List
+from typing import Dict
 import yaml
 
 import discord
 
 from src.models.permission_group import PermissionGroup
 from src.yaml_parser.permissions_parser import PermissionGroupParser
-from src.utils import channel_name_format, category_name_format
+from src.utils.utils import channel_name_format, category_name_format
 
 logger = logging.getLogger("epigear_logger")
 
@@ -52,7 +52,7 @@ class ConfigBuilder:
                                                               "permissions": self.get_perm_group(role.permissions),
                                                               "hoist": role.hoist,
                                                               "mentionable": role.mentionable}
-        with open(r'run/config_server/roles_{}.yml'.format(self.guild.name), 'w', encoding="utf8") as stream:
+        with open(r'run/config_servers/roles_{}.yml'.format(self.guild.name), 'w', encoding="utf8") as stream:
             yaml.safe_dump(roles, stream, default_flow_style=False, sort_keys=False, encoding='utf-8',
                            allow_unicode=True)
         categories: Dict = {}
@@ -95,6 +95,6 @@ class ConfigBuilder:
                                                                   "channels": text_channels,
                                                                   "vocal_channels": voice_channels}
 
-        with open(r'run/config_server/server_channels_{}.yml'.format(self.guild.name), 'w', encoding="utf8") as stream:
+        with open(r'run/config_servers/server_channels_{}.yml'.format(self.guild.name), 'w', encoding="utf8") as stream:
             yaml.safe_dump(categories, stream, default_flow_style=False, sort_keys=False, encoding='utf-8',
                            allow_unicode=True)
