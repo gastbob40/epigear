@@ -14,6 +14,7 @@ logger = logging.getLogger("epigear_logger")
 class Config:
 
     prefix: str
+    perm_group_path: str
     guilds: Dict[int, Dict[str, PermissionGroup]]
 
     def __init__(self, config : Dict, perm_group_path: str):
@@ -21,12 +22,12 @@ class Config:
         logger.debug('Build config')
 
         self.prefix = config["prefix"]
-        self.guilds = {}
+        self.perm_group_path = perm_group_path
+        self.guilds = dict()
 
         for root, dirs, files in os.walk(perm_group_path):
             for file in files:
                 if fnmatch.fnmatch(file, '[0-9][0-9]*.yml'):
-
                     guild_id: int = int(file.split('.')[0])
                     logger.debug(f'Getting perm group for {guild_id}')
 

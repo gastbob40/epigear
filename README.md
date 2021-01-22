@@ -159,7 +159,7 @@ For example:
 EXTERNE:  # The name of the role object, used in channel definition
   name: Externe             # The name of the role (on discord)
   color: 0xc0ff00           # The color of the role
-  permissions: DEFAULT      # The permission group of the role (link to perms_groups.yml)
+  permissions: DEFAULT      # The permission group of the role (link to default_perms_groups.yml)
   hoist: true               # If the role is hoist or not
   mentionable: false        # If the mentionable is hoist or not
 ```
