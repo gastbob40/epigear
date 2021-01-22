@@ -2,6 +2,7 @@ import discord
 
 from src.events_handler.on_message.command import Command
 from src.events_handler.on_message.commands.init import InitCommand
+from src.events_handler.on_message.commands import *
 from src.utils.config import Config
 from src.utils.embeds_manager import EmbedsManager
 
@@ -12,7 +13,7 @@ class OnMessage:
         if message.author.bot or isinstance(message.author, discord.User):
             return
 
-        if message.content and not message.content.startswith(config.prefix):
+        if message.content is None or not message.content.startswith(config.prefix):
             return
 
         args = message.content.split(' ')

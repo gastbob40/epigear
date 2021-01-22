@@ -11,7 +11,7 @@ class InitCommand(Command):
 
     @staticmethod
     def get_help_msg(prefix: str) -> discord.Embed:
-        return EmbedsManager.information_embed("**Init command:**\n\n",
+        return EmbedsManager.information_embed("Init command:\n\n",
                                                f"`{prefix}{InitCommand.name} <mod>`\n"
                                                "Init the permission groups for the server."
                                                "Use one of the following mods:\n"
