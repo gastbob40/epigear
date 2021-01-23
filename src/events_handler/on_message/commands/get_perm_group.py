@@ -35,10 +35,10 @@ class GetPermGroupCommand(Command):
                                               f"The group {group} does not exists on this server")
         else:
             perm_names = ""
-            for p, v in groups[group].permissions_overwrite:
+            for p, v in sorted(groups[group].permissions_overwrite):
                 if v is None and not verbose:
                     continue
-                perm_names += f"- {p} : {v}\n"
+                perm_names += f"`{p}:{v}`\n"
             embed = EmbedsManager.complete_embed(f"Permissions for group {group} on the server:\n",
                                                  perm_names)
         return embed

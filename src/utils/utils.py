@@ -1,5 +1,9 @@
 import logging
 import sys
+import discord
+from typing import Dict
+
+from src.models.permission_group import PermissionGroup
 
 logger = logging.getLogger("epigear_logger")
 
@@ -35,3 +39,17 @@ def category_name_format(name: str):
 def str_to_bool(v: str) -> bool:
     s = v.lower()
     return True if s == 'true' else False if s == 'false' else None
+
+
+def get_perm_group(d: Dict[str, PermissionGroup], perm: discord.Permissions) -> str:
+    for k, v in d.items():
+        if v.permissions == perm:
+            return k
+    return "UNKNOWN"
+
+
+def get_perm_overwrite_group(d: Dict[str, PermissionGroup], perm: discord.PermissionOverwrite) -> str:
+    for k, v in d.items():
+        if v.permissions_overwrite == perm:
+            return k
+    return "UNKNOWN"
