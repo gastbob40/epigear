@@ -1,7 +1,0 @@
-# Template
-ROLE: # name of the variable ROLE, can be whatever you want
-  name: name # name of the role in discord
-  color: 0xf1c40f # color of the role in hex code
-  hoist: true # hoist parameter in discord
-  permissions: DEFAULT # default perm group for this role on the server (see perms_groups.yml)
-  mentionable: true # mentionable parameter in discord

@@ -20,6 +20,7 @@ config = Config(config_bot, "run/config_servers")
 async def on_ready():
     logger.info('Epigear has logged in as {0.user}'.format(client))
 
+
 @client.event
 async def on_message(message: discord.Message):
     await EventsHandler.handle_on_message(client, message, config)
