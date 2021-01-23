@@ -45,12 +45,6 @@ class GetPermGroupCommand(Command):
 
     @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
-        if not Command.has_permission(message.author):
-            return
-
-        if len(args) > 1 and args[1] == '-h':
-            return await message.channel.send(embed=GetPermGroupCommand.get_help_msg(config.prefix))
-
         if len(args) == 1:
             return await message.channel.send(embed=GetPermGroupCommand.all_groups(config.guilds[message.guild.id]))
 

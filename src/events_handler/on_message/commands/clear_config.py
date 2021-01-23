@@ -28,7 +28,7 @@ class ClearConfigCommand(Command):
         file = discord.File(os.path.join(config.perm_group_path, name))
         embed = EmbedsManager.complete_embed("Success\n", "The configuration for this server has been removed, "
                                                           f"see `{config.prefix}{InitCommand.name} -h` "
-                                                          "to create a new configuration")
+                                                          "to create a new configuration.")
         config.guilds.pop(message.guild.id)
         await message.channel.send(embed=embed, file=file)
         os.remove(os.path.join(config.perm_group_path, name))

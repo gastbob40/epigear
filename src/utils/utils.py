@@ -30,3 +30,8 @@ def channel_name_format(name: str):
 
 def category_name_format(name: str):
     return str.upper(name)
+
+
+def str_to_bool(v: str) -> bool:
+    s = v.lower()
+    return True if s == 'true' else False if s == 'false' else None
