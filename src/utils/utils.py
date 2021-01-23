@@ -1,6 +1,7 @@
 import logging
 import sys
 import discord
+import re
 from typing import Dict
 
 from src.models.permission_group import PermissionGroup
@@ -53,3 +54,27 @@ def get_perm_overwrite_group(d: Dict[str, PermissionGroup], perm: discord.Permis
         if v.permissions_overwrite == perm:
             return k
     return "UNKNOWN"
+
+
+def get_channel_id(name: str) -> int:
+    if re.match("^[0-9]+$", name):
+        return int(name)
+    if re.match("^<#[0-9]+>$", name):
+        return int(name[2:-1])
+    return -1
+
+
+def get_role_id(name: str) -> int:
+    if re.match("^[0-9]+$", name):
+        return int(name)
+    if re.match("^<@&[0-9]+>$", name):
+        return int(name[3:-1])
+    return -1
+
+
+def get_user_id(name: str) -> int:
+    if re.match("^[0-9]+$", name):
+        return int(name)
+    if re.match("^<@![0-9]+>$", name):
+        return int(name[3:-1])
+    return -1

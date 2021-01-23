@@ -7,7 +7,7 @@ from src.events_handler.on_message.command import Command
 from src.events_handler.on_message.commands.init import InitCommand
 from src.utils.config import Config
 from src.utils.embeds_manager import EmbedsManager
-from src.utils.utils import get_perm_overwrite_group
+from src.utils.utils import get_perm_overwrite_group, get_channel_id, get_role_id
 
 
 class InspectCommand(Command):
@@ -46,7 +46,7 @@ class InspectCommand(Command):
 
         default = get_perm_overwrite_group(config.guilds[channel.guild.id],
                                            channel.overwrites_for(channel.guild.default_role))
-        info = f"The default permission group for the channel {channel.name}({chan_id}) is\n`{default}`\n" \
+        info = f"The default permission group for the channel `{channel.name}({chan_id})` is\n`{default}`\n" \
                f"The others permission groups for this channel are :\n"
 
         for role, perm in channel.overwrites.items():
@@ -58,20 +58,21 @@ class InspectCommand(Command):
         return EmbedsManager.complete_embed("Success\n", info)
 
     @staticmethod
-    def inspect_channel(chan_id: str, role_id: str, message: discord.Message, config: Config) -> discord.Embed:
-        pattern = re.compile("^[0-9]+$")
-        if not pattern.match(chan_id):
-            return EmbedsManager.error_embed("Error\n", f"The id `{chan_id}` is not valid.")
+    def inspect_channel(chan_arg: str, role_arg: str, message: discord.Message, config: Config) -> discord.Embed:
+        channel_id = get_channel_id(chan_arg)
+        if channel_id == -1:
+            return EmbedsManager.error_embed("Error\n", f"The id `{chan_arg}` is not valid.")
         else:
-            chan = message.guild.get_channel(int(chan_id))
+            chan = message.guild.get_channel(channel_id)
             if not chan:
                 return EmbedsManager.error_embed("Error\n", f"The channel could not be found on this server.")
 
-        if role_id != "":
-            if not pattern.match(role_id):
-                return EmbedsManager.error_embed("Error\n", f"The role id `{role_id}` is not valid.")
-            return InspectCommand.inspect_role_in_channel(chan, int(chan_id), int(role_id), config)
-        return InspectCommand.inspect_all_role_in_channel(chan, int(chan_id), config)
+        if role_arg != "":
+            role_id = get_role_id(role_arg)
+            if role_id == -1:
+                return EmbedsManager.error_embed("Error\n", f"The role id `{role_arg}` is not valid.")
+            return InspectCommand.inspect_role_in_channel(chan, channel_id, role_id, config)
+        return InspectCommand.inspect_all_role_in_channel(chan, channel_id, config)
 
     @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):

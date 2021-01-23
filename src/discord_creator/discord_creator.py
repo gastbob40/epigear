@@ -88,7 +88,8 @@ class DiscordCreator:
                 if discord_channel is None:
                     discord_channel = await self.guild.create_text_channel(name=text_channel.name,
                                                                            category=discord_category)
-                await discord_channel.edit(sync_permissions=True, topic=text_channel.topic)
+                if len(text_channel.overwrites) == 0:
+                    await discord_channel.edit(sync_permissions=True, topic=text_channel.topic)
                 for role in text_channel.overwrites:
                     await discord_channel.set_permissions(role, overwrite=text_channel.overwrites[role])
 
@@ -103,7 +104,8 @@ class DiscordCreator:
                 if discord_channel is None:
                     discord_channel = await self.guild.create_voice_channel(name=voice_channel.name,
                                                                             category=discord_category)
-                await discord_channel.edit(sync_permissions=True)
+                if len(voice_channel.overwrites) == 0:
+                    await discord_channel.edit(sync_permissions=True)
                 for role in voice_channel.overwrites:
                     await discord_channel.set_permissions(role, overwrite=voice_channel.overwrites[role])
         logger.info("All categories and channels created/updated")
