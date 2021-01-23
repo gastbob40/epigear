@@ -28,7 +28,6 @@ class Config:
             for file in files:
                 pattern = re.compile('[0-9][0-9]*.yml')
                 if pattern.match(file):
-                    print(file)
                     guild_id: int = int(file.split('.')[0])
                     logger.debug(f'Getting perm group for {guild_id}')
 

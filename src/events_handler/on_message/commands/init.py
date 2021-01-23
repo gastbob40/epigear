@@ -1,9 +1,13 @@
-import discord
+import os
 from typing import List
 
+import discord
+
 from src.events_handler.on_message.command import Command
+from src.events_handler.on_message.commands.get_perm_group import GetPermGroupCommand
 from src.utils.config import Config
 from src.utils.embeds_manager import EmbedsManager
+from src.yaml_parser.permissions_parser import PermissionGroupParser
 
 
 class InitCommand(Command):
@@ -23,8 +27,27 @@ class InitCommand(Command):
 
     @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
-        if not Command.has_permission(message.author):
-            return
 
-        if len(args) > 1 and args[1] == '-h':
+        if message.guild.id in config.guilds.keys():
+            embed = EmbedsManager.error_embed("Error\n", "This server has already been "
+                                                         f"configured, use `{config.prefix}{GetPermGroupCommand.name}` "
+                                                         f"to check the configuration")
+            return await message.channel.send(embed=embed)
+
+        if len(args) != 2 or args[1] not in ["default", "none", "file"]:
             return await message.channel.send(embed=InitCommand.get_help_msg(config.prefix))
+
+        if args[1] == 'default':
+            default = PermissionGroupParser.get_permissions(os.path.join(config.perm_group_path,
+                                                                         "default_perm_groups.yml"))
+            config.guilds[message.guild.id] = default
+        elif args[1] == 'none':
+            config.guilds[message.guild.id] = dict()
+        else:
+            # TODO: add file with pastebin
+            return
+        config.dump_perm_group(message.guild.id)
+        embed = EmbedsManager.complete_embed("Success\n", "This server has been configured, "
+                                                          f"use `{config.prefix}get_perm_group` "
+                                                          "to check the configuration")
+        return await message.channel.send(embed=embed)
