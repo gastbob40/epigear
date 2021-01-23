@@ -27,9 +27,9 @@ class UpdateCommand(Command):
         user_id = get_user_id(user_arg)
         if user_id == -1:
             return EmbedsManager.error_embed("Error\n", f"The user id `{user_arg}` is not valid.")
-        member = channel.guild.get_member(user_id)
+        member = await channel.guild.fetch_member(user_id)
         if not member:
-            return EmbedsManager.error_embed("Error\n", f"The user `{user_arg}` does not exists on this server")
+            return EmbedsManager.error_embed("Error\n", f"The user `{user_id}` does not exists on this server")
 
         perm = None
         if perm_group != "":
