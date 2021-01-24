@@ -1,6 +1,7 @@
 import logging
 from typing import Dict
 import yaml
+import os
 
 import discord
 
@@ -15,12 +16,15 @@ class ConfigBuilder:
     permissions_groups: Dict[str, PermissionGroup]
     guild: discord.guild
     client: discord.client
+    path: str
 
-    def __init__(self, client: discord.Client, guild_id: int):
+    def __init__(self, client: discord.Client, guild: discord.Guild, permissions_groups: Dict[str, PermissionGroup],
+                 path: str):
         # Get data from parser
-        self.permissions_groups = PermissionGroupParser.yaml_to_objects()
+        self.permissions_groups = permissions_groups
         self.client = client
-        self.guild = client.get_guild(guild_id)
+        self.guild = guild
+        self.path = path
 
     def get_perm_group(self, perm: discord.Permissions) -> str:
         for k, v in self.permissions_groups.items():
@@ -52,7 +56,7 @@ class ConfigBuilder:
                                                               "permissions": self.get_perm_group(role.permissions),
                                                               "hoist": role.hoist,
                                                               "mentionable": role.mentionable}
-        with open(r'run/config_servers/roles_{}.yml'.format(self.guild.name), 'w', encoding="utf8") as stream:
+        with open(os.path.join(self.path, f"{self.guild.id}_roles.yml"), 'w', encoding="utf8") as stream:
             yaml.safe_dump(roles, stream, default_flow_style=False, sort_keys=False, encoding='utf-8',
                            allow_unicode=True)
         categories: Dict = {}
@@ -95,6 +99,6 @@ class ConfigBuilder:
                                                                   "channels": text_channels,
                                                                   "vocal_channels": voice_channels}
 
-        with open(r'run/config_servers/server_channels_{}.yml'.format(self.guild.name), 'w', encoding="utf8") as stream:
+        with open(os.path.join(self.path, f"{self.guild.id}_channels.yml"), 'w', encoding="utf8") as stream:
             yaml.safe_dump(categories, stream, default_flow_style=False, sort_keys=False, encoding='utf-8',
                            allow_unicode=True)
