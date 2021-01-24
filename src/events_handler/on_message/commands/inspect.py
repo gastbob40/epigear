@@ -27,7 +27,7 @@ class InspectCommand(Command):
 
         role = channel.guild.get_role(role_id)
         if not role:
-            return EmbedsManager.error_embed("Error\n", f"The role does not exists on this server")
+            return EmbedsManager.error_embed("Error\n", f"The role `{role_id}` does not exists on this server")
 
         info = f"The role `{role.name}({role_id})` does not have specific permission " \
                f"in the channel `{channel.name}({chan_id})`"
