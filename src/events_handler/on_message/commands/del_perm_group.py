@@ -27,6 +27,10 @@ class DelPermGroupCommand(Command):
                                                "Remove the permission group from the configuration")
 
     @staticmethod
+    def get_description() -> str:
+        return "remove a permission group."
+
+    @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
         if len(args) == 1:
             return await message.channel.send(embed=DelPermGroupCommand.all_groups(config.guilds[message.guild.id]))

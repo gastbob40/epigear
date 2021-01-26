@@ -24,6 +24,10 @@ class SetPermGroupCommand(Command):
                                                "Print a list of all the possible permissions")
 
     @staticmethod
+    def get_description() -> str:
+        return "add permission to permission group."
+
+    @staticmethod
     def get_all_perm() -> discord.Embed:
         perm_names = ""
         for k, v in sorted(iter(discord.Permissions.all())):

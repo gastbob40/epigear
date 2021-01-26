@@ -36,9 +36,10 @@ class OnMessage:
 
         for command in Command.__subclasses__():
             if command.name == cmd:
-                logger.debug(f"Command {command.name}")
+                logger.debug(f"Command {command.name} by user {message.author.name}{message.author.id} in channel"
+                             f" {message.channel.name} on guild {message.guild.name}{message.guild.id}")
 
-                if not command.has_permission(message.author):
+                if not await command.has_permission(message.guild, message.author):
                     logger.debug(f"Command {command.name}: Permission error")
                     embed = EmbedsManager.error_embed("Error\n", "You don't have the necessary permissions.")
                     return await message.channel.send(embed=embed)

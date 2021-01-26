@@ -22,6 +22,10 @@ class UpdateCommand(Command):
                                                " parsed as the a user id.")
 
     @staticmethod
+    def get_description() -> str:
+        return "update channel's permissions."
+
+    @staticmethod
     async def update_user(channel: discord.abc.GuildChannel, user_arg: str,
                           perm_group: str, config: Config) -> Union[discord.Embed, None]:
         user_id = get_user_id(user_arg)

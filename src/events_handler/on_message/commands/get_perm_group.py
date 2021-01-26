@@ -29,6 +29,10 @@ class GetPermGroupCommand(Command):
                                                " set to None) will be displayed")
 
     @staticmethod
+    def get_description() -> str:
+        return "get a permission group."
+
+    @staticmethod
     def group_info(group: str, groups: Dict[str, PermissionGroup], verbose: bool):
         if group not in groups:
             embed = EmbedsManager.error_embed("Unknown Permission Group",

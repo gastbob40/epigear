@@ -19,6 +19,10 @@ class UpdateRoleCommand(Command):
                                                "the role id to change the permissions of the role everyone.")
 
     @staticmethod
+    def get_description() -> str:
+        return "update role's permissions."
+
+    @staticmethod
     async def update_role(guild: discord.Guild, role_arg: str,
                           perm_group: str, config: Config) -> Union[discord.Embed, None]:
         if role_arg == 'default':

@@ -20,6 +20,10 @@ class ClearConfigCommand(Command):
                                                "Clear the configuration of the server.")
 
     @staticmethod
+    def get_description() -> str:
+        return "clear the configuration of the server."
+
+    @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
         if len(args) != 1:
             return await message.channel.send(embed=InitCommand.get_help_msg(config.prefix))

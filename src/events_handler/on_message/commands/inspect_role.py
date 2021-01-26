@@ -25,6 +25,10 @@ class InspectRolesCommand(Command):
                                                "displayed for each roles and not juste the perm group")
 
     @staticmethod
+    def get_description() -> str:
+        return "inspect a role's permissions."
+
+    @staticmethod
     async def all_roles(guild: discord.Guild, perm_groups: Dict[str, PermissionGroup]) -> List[discord.Embed]:
         roles_perm = ""
         roles = await guild.fetch_roles()

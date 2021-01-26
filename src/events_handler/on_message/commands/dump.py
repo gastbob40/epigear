@@ -28,6 +28,10 @@ class DumpCommand(Command):
                                                "Dump the configuration of the server")
 
     @staticmethod
+    def get_description() -> str:
+        return "dump the configuration files."
+
+    @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
         if len(args) != 1:
             return await message.channel.send(embed=DumpCommand.all_groups(config.guilds[message.guild.id]))

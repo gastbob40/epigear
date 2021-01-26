@@ -22,6 +22,10 @@ class InspectCommand(Command):
                                                " permission group for the role.")
 
     @staticmethod
+    def get_description() -> str:
+        return "inspect a channel or category."
+
+    @staticmethod
     def inspect_role_in_channel(channel: discord.abc.GuildChannel, chan_id: int, role_id: int,
                                 config: Config) -> discord.Embed:
 

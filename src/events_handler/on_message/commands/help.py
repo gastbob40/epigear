@@ -18,12 +18,20 @@ class HelpCommand(Command):
                                                "Display list of all commands")
 
     @staticmethod
+    def get_description() -> str:
+        return "display help message."
+
+    @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
         if len(args) != 1:
             return await message.channel.send(embed=HelpCommand.get_help_msg(config.prefix))
 
         msg = f"Here is a list of commands available. Use `{config.prefix}<cmd> -h` " \
               "for more information about each commands.\n"
+        longest_desc = max([len(c.get_description()) for c in Command.__subclasses__()])
+        longest_name = max([len(c.name) for c in Command.__subclasses__()]) + len(config.prefix)
         for command in sorted(Command.__subclasses__(), key=lambda cmd: cmd.name):
-            msg += f"`{config.prefix}{command.name}`\n"
+            msg += f"`{config.prefix}{command.name}".ljust(longest_name + 5)
+            msg += f"{command.get_description()}`".rjust(longest_desc + 2)
+            msg += "\n"
         return await message.channel.send(embed=EmbedsManager.information_embed("Help", msg))

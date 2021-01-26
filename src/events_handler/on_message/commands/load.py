@@ -29,6 +29,10 @@ class LoadCommand(Command):
                                                " in the default server settings.")
 
     @staticmethod
+    def get_description() -> str:
+        return "load configuration to build roles and channels."
+
+    @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
         if len(args) < 3:
             return await message.channel.send(embed=LoadCommand.get_help_msg(config.prefix))

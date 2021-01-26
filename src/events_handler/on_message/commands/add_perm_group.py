@@ -24,6 +24,10 @@ class AddPermGroupCommand(Command):
                                                "Print a list of all the possible permissions")
 
     @staticmethod
+    def get_description() -> str:
+        return "add permission group."
+
+    @staticmethod
     def get_all_perm() -> discord.Embed:
         perm_names = ""
         for k, v in sorted(iter(discord.Permissions.all())):
@@ -45,7 +49,6 @@ class AddPermGroupCommand(Command):
 
     @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
-
         if len(args) == 1:
             return await message.channel.send(embed=AddPermGroupCommand.get_help_msg(config.prefix))
 

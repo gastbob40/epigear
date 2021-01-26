@@ -26,6 +26,10 @@ class InitCommand(Command):
                                                "Display this message.")
 
     @staticmethod
+    def get_description() -> str:
+        return "init the configuration."
+
+    @staticmethod
     async def handle(client: discord.Client, message: discord.Message, args: List[str], config: Config):
 
         if message.guild.id in config.guilds.keys():
