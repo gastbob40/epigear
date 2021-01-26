@@ -13,7 +13,7 @@ class UpdateCommand(Command):
 
     @staticmethod
     def get_help_msg(prefix: str) -> discord.Embed:
-        return EmbedsManager.information_embed("Inspect command:\n\n",
+        return EmbedsManager.information_embed("Update command:\n\n",
                                                f"`{prefix}{UpdateCommand.name} CHAN_ID [[u]ROLE_ID[:PERM_GROUP]]+`\n"
                                                "Update a channel or a category. If PERM_GROUP is not given, the"
                                                " permission for this role are removed. Use `default` instead of"

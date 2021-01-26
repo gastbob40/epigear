@@ -12,7 +12,7 @@ from src.utils.utils import get_perm_group, get_channel_id, get_role_id
 
 
 class InspectRolesCommand(Command):
-    name: str = 'inspect_roles'
+    name: str = 'inspect_role'
 
     @staticmethod
     def get_help_msg(prefix: str) -> discord.Embed:
@@ -46,12 +46,15 @@ class InspectRolesCommand(Command):
     @staticmethod
     async def inspect_role(role_arg: str, guild: discord.Guild, perm_groups: Dict[str, PermissionGroup],
                            verbose: bool) -> discord.Embed:
-        role_id = get_role_id(role_arg)
-        if role_id == -1:
-            return EmbedsManager.error_embed("Error\n", f"The role id `{role_arg}` is not valid.")
-        role = guild.get_role(role_id)
-        if role is None:
-            return EmbedsManager.error_embed("Error\n", f"The role `{role_arg}` does not exists on this server")
+        if role_arg == 'default':
+            role = guild.default_role
+        else:
+            role_id = get_role_id(role_arg)
+            if role_id == -1:
+                return EmbedsManager.error_embed("Error\n", f"The role id `{role_arg}` is not valid.")
+            role = guild.get_role(role_id)
+            if role is None:
+                return EmbedsManager.error_embed("Error\n", f"The role `{role_arg}` does not exists on this server")
 
         role_perm = f"`{role.name}: {role.id}:{get_perm_group(perm_groups, role.permissions)}`\n"
         if not verbose:

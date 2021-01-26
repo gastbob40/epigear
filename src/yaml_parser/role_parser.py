@@ -11,10 +11,9 @@ logger = logging.getLogger("epigear_logger")
 class RoleParser:
 
     @staticmethod
-    def yaml_to_objects(permissions_groups: Dict[str, PermissionGroup]) -> Dict[str, Role]:
-        logger.info('Get roles from config')
-        with open('run/config_servers/roles.yml', 'r', encoding='utf8') as stream:
-            data = yaml.safe_load(stream)
+    def get_roles_from_content(content: str, permissions_groups: Dict[str, PermissionGroup]) -> Dict[str, Role]:
+        logger.debug('Get roles from config')
+        data = yaml.safe_load(content)
 
         roles = {}
 
@@ -25,5 +24,5 @@ class RoleParser:
                             data[role_name]['mentionable'])
             roles[role_name] = new_role
 
-        logger.info('{} roles parsed'.format(len(data)))
+        logger.debug('{} roles parsed'.format(len(data)))
         return roles

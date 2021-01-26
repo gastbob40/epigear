@@ -1,12 +1,13 @@
-from typing import Dict
-from discord import Role as RoleDiscord
-from discord import PermissionOverwrite
-import yaml
 import logging
+from typing import Dict
+
+import yaml
+from discord import PermissionOverwrite
+from discord import Role as RoleDiscord
 
 from src.models.channels import Channel, Category
-from src.models.role import Role
 from src.models.permission_group import PermissionGroup
+from src.models.role import Role
 from src.utils.utils import channel_name_format
 
 logger = logging.getLogger("epigear_logger")
@@ -15,10 +16,10 @@ logger = logging.getLogger("epigear_logger")
 class ChannelParser:
 
     @staticmethod
-    def yaml_to_objects(permissions_groups: Dict[str, PermissionGroup], roles: Dict[str, Role]) -> Dict[str, Category]:
-        with open('run/config_servers/server_channels.yml', 'r', encoding='utf8') as stream:
-            data = yaml.safe_load(stream)
-        logger.info('Get categories from config')
+    def get_channels_from_file(content: str, permissions_groups: Dict[str, PermissionGroup],
+                               roles: Dict[str, Role]) -> Dict[str, Category]:
+        data = yaml.safe_load(content)
+        logger.debug('Get categories from config')
 
         categories = {}
 
@@ -40,7 +41,7 @@ class ChannelParser:
             new_category = Category(data[category_name]['name'], overwrites, channels, vocal_channels, default_perm)
             categories[category_name] = new_category
 
-        logger.info('{} categories parsed'.format(len(data)))
+        logger.debug('{} categories parsed'.format(len(data)))
 
         return categories
 
@@ -80,5 +81,5 @@ class ChannelParser:
                                   topic)
             channels[channel_name] = new_channel
 
-        logger.info('{} channels parsed'.format(len(channels_info)))
+        logger.debug('{} channels parsed'.format(len(channels_info)))
         return channels

@@ -31,7 +31,8 @@ class Config:
                     guild_id: int = int(file.split('.')[0])
                     logger.debug(f'Getting perm group for {guild_id}')
 
-                    self.guilds[guild_id] = PermissionGroupParser.get_permissions(os.path.join(perm_group_path, file))
+                    self.guilds[guild_id] = PermissionGroupParser.get_permissions_from_file(
+                        os.path.join(perm_group_path, file))
 
     def dump_perm_group(self, guild: int):
         """

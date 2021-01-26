@@ -38,8 +38,8 @@ class InitCommand(Command):
             return await message.channel.send(embed=InitCommand.get_help_msg(config.prefix))
 
         if args[1] == 'default':
-            default = PermissionGroupParser.get_permissions(os.path.join(config.perm_group_path,
-                                                                         "default_perm_groups.yml"))
+            default = PermissionGroupParser.get_permissions_from_file(os.path.join(config.perm_group_path,
+                                                                                   "default_perm_groups.yml"))
             config.guilds[message.guild.id] = default
         elif args[1] == 'none':
             config.guilds[message.guild.id] = dict()

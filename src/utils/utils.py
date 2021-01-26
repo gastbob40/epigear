@@ -1,6 +1,7 @@
 import logging
 import sys
 import discord
+import requests
 import re
 from typing import Dict
 
@@ -78,3 +79,7 @@ def get_user_id(name: str) -> int:
     if re.match("^<@![0-9]+>$", name):
         return int(name[3:-1])
     return -1
+
+
+def get_content_from_link(link: str) -> str:
+    return requests.get(link).text
