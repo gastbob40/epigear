@@ -27,7 +27,6 @@ class DiscordCreator:
         # Get data from parser
         self.permissions_groups = permissions_groups
         self.roles_to_ignore = roles_to_ignore
-        self.all_roles: Dict[str, Role] = {**self.roles}
         self.client = client
         self.guild = client.get_guild(guild_id)
         self.guild_id = guild_id
@@ -36,6 +35,7 @@ class DiscordCreator:
         try:
             roles = get_content_from_link(role_link)
             self.roles = RoleParser.get_roles_from_content(roles, self.permissions_groups)
+            self.all_roles: Dict[str, Role] = {**self.roles}
         except Exception as e:
             raise Exception(f"Error during the parsing of the roles from {role_link}: \n{e}")
 
@@ -56,11 +56,11 @@ class DiscordCreator:
             raise Exception(f"Error during the creation of the channels from {channels_link}: \n{e}")
 
     async def create_role(self, roles_to_ignore: List[int]):
-        logger.info("Creating/Updating roles")
+        logger.debug("Creating/Updating roles")
         for role_name in self.all_roles:
             role = self.all_roles[role_name]
 
-            if role.id in roles_to_ignore:
+            if role_name in roles_to_ignore:
                 logger.debug("role {}:{} ignored".format(role_name, role.name))
                 continue
 
@@ -81,7 +81,7 @@ class DiscordCreator:
                                         hoist=role.hoist,
                                         mentionable=role.mentionable)
             self.all_roles[role_name].set_role(discord_role)
-        logger.info("All roles created/updated")
+        logger.debug("All roles created/updated")
 
     async def create_categories_and_channels(self, categories: Dict[str, Category]):
 
