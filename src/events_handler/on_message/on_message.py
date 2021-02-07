@@ -36,8 +36,8 @@ class OnMessage:
 
         for command in Command.__subclasses__():
             if command.name == cmd:
-                logger.debug(f"Command {command.name} by user {message.author.name}{message.author.id} in channel"
-                             f" {message.channel.name} on guild {message.guild.name}{message.guild.id}")
+                logger.debug(f"Command {command.name} by user {message.author.name}({message.author.id}) in channel"
+                             f" {message.channel.name} on guild {message.guild.name}({message.guild.id})")
 
                 if not await command.has_permission(message.guild, message.author):
                     logger.debug(f"Command {command.name}: Permission error")

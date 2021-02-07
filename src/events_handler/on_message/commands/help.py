@@ -27,7 +27,7 @@ class HelpCommand(Command):
             return await message.channel.send(embed=HelpCommand.get_help_msg(config.prefix))
 
         msg = f"Here is a list of commands available. Use `{config.prefix}<cmd> -h` " \
-              "for more information about each commands.\n"
+              "for more information about each command.\n"
         longest_desc = max([len(c.get_description()) for c in Command.__subclasses__()])
         longest_name = max([len(c.name) for c in Command.__subclasses__()]) + len(config.prefix)
         for command in sorted(Command.__subclasses__(), key=lambda cmd: cmd.name):
