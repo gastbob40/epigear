@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  bot:
+    image: python:3.9
+    volumes:
+      - ./:/app
+    command: bash -c "
+      cd app
+      && pip install -r requirements.txt
+      && python index.py
+      "
+
