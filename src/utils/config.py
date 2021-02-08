@@ -1,7 +1,7 @@
 import logging
 import os
 import re
-from typing import Dict
+from typing import Dict, List
 
 import yaml
 
@@ -15,12 +15,14 @@ logger = logging.getLogger("epigear_logger")
 class Config:
     prefix: str
     perm_group_path: str
+    server_admin: List[int]
     guilds: Dict[int, Dict[str, PermissionGroup]]
 
     def __init__(self, config: Dict, perm_group_path: str):
         logger.debug('Build config')
 
         self.prefix = config["prefix"]
+        self.super_admin = config["super_admin"]
         self.perm_group_path = perm_group_path
         self.guilds = dict()
 

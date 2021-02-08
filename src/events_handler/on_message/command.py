@@ -21,8 +21,8 @@ class Command:
         return
 
     @staticmethod
-    async def has_permission(guild: discord.Guild, user: discord.User):
-        if user.id == 277096487467352065:
+    async def has_permission(guild: discord.Guild, user: discord.User, config: Config):
+        if user.id in config.super_admin:
             return True
         member = await guild.fetch_member(user.id)
         if not member:
