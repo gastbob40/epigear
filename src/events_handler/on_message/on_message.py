@@ -21,7 +21,7 @@ class OnMessage:
         if message.content is None or not message.content.startswith(config.prefix):
             return
 
-        args = re.split('[ \n\r]', message.content)
+        args = [arg for arg in re.split('[ \n\r]', message.content) if len(arg) > 0]
         cmd = args[0][len(config.prefix):].lower()
 
         if cmd != 'init' and message.guild.id not in config.guilds.keys():
